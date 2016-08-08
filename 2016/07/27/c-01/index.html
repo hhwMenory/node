@@ -1,0 +1,637 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://mgr.menory.com/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="协议，客户端与服务端的结构化对话套接字不是传统意义上的数据流他是双向的，他既可以用作输入也可以用作输出
+BLAB 服务器连接网络四部曲
+B 绑定端口，
+L 监听
+A 接受连接
+B 开始通信
+
+12345678910111213141516171819202122232425262728293031323334353637383940#include &amp;lt;sys/socket.h&amp;gt;#inc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C 学习笔记_网络与套接字">
+<meta property="og:url" content="http://yoursite.com/2016/07/27/c-01/index.html">
+<meta property="og:site_name" content="Menory">
+<meta property="og:description" content="协议，客户端与服务端的结构化对话套接字不是传统意义上的数据流他是双向的，他既可以用作输入也可以用作输出
+BLAB 服务器连接网络四部曲
+B 绑定端口，
+L 监听
+A 接受连接
+B 开始通信
+
+12345678910111213141516171819202122232425262728293031323334353637383940#include &amp;lt;sys/socket.h&amp;gt;#inc">
+<meta property="og:updated_time" content="2016-07-26T17:32:16.976Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C 学习笔记_网络与套接字">
+<meta name="twitter:description" content="协议，客户端与服务端的结构化对话套接字不是传统意义上的数据流他是双向的，他既可以用作输入也可以用作输出
+BLAB 服务器连接网络四部曲
+B 绑定端口，
+L 监听
+A 接受连接
+B 开始通信
+
+12345678910111213141516171819202122232425262728293031323334353637383940#include &amp;lt;sys/socket.h&amp;gt;#inc">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/27/c-01/"/>
+
+  <title> C 学习笔记_网络与套接字 | Menory </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Menory</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">生命不息，作死不止！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C 学习笔记_网络与套接字
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-27T01:32:16+08:00" content="2016-07-27">
+              2016-07-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>协议，客户端与服务端的结构化对话<br>套接字不是传统意义上的数据流<br>他是双向的，他既可以用作输入也可以用作输出</p>
+<h4 id="BLAB-服务器连接网络四部曲"><a href="#BLAB-服务器连接网络四部曲" class="headerlink" title="BLAB 服务器连接网络四部曲"></a>BLAB 服务器连接网络四部曲</h4><ul>
+<li>B 绑定端口，</li>
+<li>L 监听</li>
+<li>A 接受连接</li>
+<li>B 开始通信</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#include &lt;sys/socket.h&gt;</span></div><div class="line"><span class="comment">#include &lt;arpa/inet.h&gt;</span></div><div class="line"></div><div class="line">int listener_d = socket(PF_INET, SOCK_STREAM, 0);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> (listener_d == 1)</div><div class="line">    error(<span class="string">"Not open socket!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_<span class="keyword">in</span> name;</div><div class="line"></div><div class="line">name.sin_family      = PF_INET;</div><div class="line">name.sin_port        = (<span class="keyword">in</span>_port_t)htons(3000);</div><div class="line">name.sin_addr.s_addr = htonl(INADDR_ANY);</div><div class="line"></div><div class="line">int c = <span class="built_in">bind</span>(listener_d, (struct sockaddr *)&amp;name, sizeof(name));</div><div class="line"></div><div class="line"><span class="keyword">if</span> (c == -1)</div><div class="line">    error(<span class="string">"Not bind port!"</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> (listen(listener_d, 10) == -1)</div><div class="line">    error(<span class="string">"Not listen!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_storage_client_addr;</div><div class="line"></div><div class="line">unsigned int address_size = sizeof(client_addr);</div><div class="line">int connect_d = accept(listener_d, (struct sockaddr *)&amp;client_addr, &amp;address_size);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (connect_d == -1)</div><div class="line">    error(<span class="string">"Not accept!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">char *msg = <span class="string">"xx\r\nzz\r\n"</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (send(connect_d, msg, strlen(msg), 0) == -1)</div><div class="line">    error(<span class="string">"Not send!"</span>);</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong> 当某个端口被绑定了套接字，在接下来的30秒内，操作系统不允许任何程序再绑定它</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int reuse = 1;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (setsockopt(listener_d, SOL_SOCKET, SO_REUSEADDR, (char *)&amp;reuse, sizeof(int)) == -1)</div><div class="line">    error(<span class="string">"Net set sockopt!"</span>);</div></pre></td></tr></table></figure>
+<p> 从客户端读取数据</p>
+<p> &lt;读了几个字节&gt; = recv(&lt;描述符&gt;, &lt;缓冲区&gt;, &lt;要读取几个字节&gt;, 0);</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>字符串不以 \0 结尾</li>
+<li>当用户在 telent 输入文本时，字符串以 \r\n 结尾</li>
+<li>recv() 将返回字符个数，如果发生错误就返回-1，如果客户端关闭了连接，就返回0</li>
+<li>recv() 调用不一定能一次接收到所有字符</li>
+</ul>
+<hr>
+<p><strong>客户端：</strong></p>
+<ul>
+<li>连接远程端口</li>
+<li>开始通信</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int s = socket(PF_INET, SOCK_STREAM, 0);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_<span class="keyword">in</span> si;</div><div class="line"></div><div class="line">memset(&amp;si, 0, sizeof(si));</div><div class="line"></div><div class="line">si.sin_family      = PF_INET;</div><div class="line">si.sin_addr.s_addr = inet_addr(<span class="string">"182.254.227.60"</span>);</div><div class="line">si.sin_port        = htons(80);</div><div class="line"></div><div class="line"></div><div class="line">connect(s, (struct sockaddr *) &amp;si, sizeof(si));</div></pre></td></tr></table></figure>
+<p>创建域名套接字</p>
+<p>getaddrinfo() 获取域名的地址，需要 netdb.h 文件，会在堆上创建一种名字资源的新数据结构</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#include &lt;netdb.h&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">struct addrinfo *res;</div><div class="line"></div><div class="line">struct addrinfo hints;</div><div class="line"></div><div class="line"></div><div class="line">memset(&amp;hints, 0, sizeof(hints));</div><div class="line"></div><div class="line"></div><div class="line">hints.ai_family   = PF_UNSPEC;</div><div class="line">hints.ai_socktype = SOCK_STREAM;</div><div class="line"></div><div class="line"></div><div class="line">getaddrinfo(<span class="string">"hexo.menory.com"</span>, <span class="string">"80"</span>, &amp;hints, &amp;res);</div><div class="line"></div><div class="line"></div><div class="line">int s = socket(res-&gt;ai_family, res-&gt;ai_socktype, res-&gt;ai_protocol);</div><div class="line"></div><div class="line"></div><div class="line">connect(s, res-&gt;ai_addr, res-&gt;ai_addrlen);</div><div class="line"></div><div class="line"></div><div class="line">freeaddrinfo(res);</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/22/conf/" rel="next" title="Nginx 配置文件">
+                <i class="fa fa-chevron-left"></i> Nginx 配置文件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/03/yaml/" rel="prev" title="yaml 语法">
+                yaml 语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://static.menory.com/public/images/logo.jpg"
+               alt="Menory" />
+          <p class="site-author-name" itemprop="name">Menory</p>
+          <p class="site-description motion-element" itemprop="description">个人分享</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#BLAB-服务器连接网络四部曲"><span class="nav-number">1.</span> <span class="nav-text">BLAB 服务器连接网络四部曲</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Menory</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
