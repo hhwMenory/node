@@ -91,14 +91,14 @@
 /bin：二进制文件目录，用于存放启动系统时用到的程序/usr/bin：用户二进制文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记_Linux程序设计_泛读">
-<meta property="og:url" content="http://yoursite.com/2016/08/08/note-01/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/08/10/note-01/index.html">
 <meta property="og:site_name" content="Menory">
 <meta property="og:description" content="linux-who显示目前登入系统的用户信息
 
 -H or –heading：显示各栏位的标题信息列-u：显示闲置时间，若该用户在前一分钟之内有进行任何动作，则标识“.”，如果该用户已超过24小时没有任何动作，则标志“old”-m：同 who am i-q or –count：只显示登入系统的帐号名称和总人数
 
 /bin：二进制文件目录，用于存放启动系统时用到的程序/usr/bin：用户二进制文件">
-<meta property="og:updated_time" content="2016-08-07T19:05:41.336Z">
+<meta property="og:updated_time" content="2016-08-09T20:47:15.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记_Linux程序设计_泛读">
 <meta name="twitter:description" content="linux-who显示目前登入系统的用户信息
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/08/note-01/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/10/note-01/"/>
 
   <title> 读书笔记_Linux程序设计_泛读 | Menory </title>
 </head>
@@ -270,8 +270,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T03:05:41+08:00" content="2016-08-08">
-              2016-08-08
+            <time itemprop="dateCreated" datetime="2016-08-10T04:47:15+08:00" content="2016-08-10">
+              2016-08-10
             </time>
           </span>
 
@@ -354,7 +354,55 @@
 </li>
 </ol>
 <hr>
-<h4 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h4>
+<h4 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h4><p>test 或 [ ：对条件进行测试判断，可以使用的条件类型大概分为三类：</p>
+<ul>
+<li>字符串比较<ul>
+<li>=  两个字符串相同则结果为真</li>
+<li>!= 两个字符串不同则结果为真</li>
+<li>-n string 字符串不为空则结果为真</li>
+<li>-z string 字符串为 null（一个空串）则结果为真</li>
+</ul>
+</li>
+<li>算术比较<ul>
+<li>-eq -ne -gt -ge -lt -le !</li>
+</ul>
+</li>
+<li>与文件相关的条件测试<ul>
+<li>-d [-e|-f]</li>
+<li>-r（可读）  -w（可写） -x（可执行）</li>
+<li>-s 文件大小不为0则结果为真</li>
+<li>-u 文件的 set-user-id 位被设置则结果为真</li>
+<li>-g 文件的 set-group-id 位被设置则结果为真</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-f</span> fred.c</div><div class="line"><span class="keyword">then</span></div><div class="line">...</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="comment"># [ 和被检查条件之间要有空格，then 和 if 在同一行时必须用 ; 将 then隔开</span></div><div class="line"><span class="keyword">if</span> [ <span class="_">-f</span> fred.c ]; <span class="keyword">then</span></div><div class="line">...</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h4 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># if 语句</span></div><div class="line"><span class="keyword">if</span> condition; <span class="keyword">then</span></div><div class="line">...</div><div class="line"><span class="keyword">elif</span> condition; <span class="keyword">then</span></div><div class="line">...</div><div class="line"><span class="keyword">else</span></div><div class="line">...</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="comment"># 1. [ $a = "yes" ] 当 $a 空字符串时，致使[ = "yes" ]而出错，可以给变量加上引号，即[ "" = "yes" ]</span></div><div class="line"><span class="comment"># 2. echo -n 可以去掉换行符</span></div><div class="line"></div><div class="line"><span class="comment"># for 语句</span></div><div class="line"><span class="keyword">for</span> variable <span class="keyword">in</span> values; <span class="keyword">do</span></div><div class="line">...</div><div class="line"><span class="keyword">done</span></div><div class="line"></div><div class="line"><span class="comment"># while 语句，条件为真时才反复执行</span></div><div class="line"><span class="keyword">while</span> condition; <span class="keyword">do</span></div><div class="line">...</div><div class="line"><span class="keyword">done</span></div><div class="line"></div><div class="line"><span class="comment"># until 语句，反复执行直到条件为真</span></div><div class="line">until condition; <span class="keyword">do</span></div><div class="line">...</div><div class="line"><span class="keyword">done</span> </div><div class="line"></div><div class="line"><span class="comment"># case 语句，正则</span></div><div class="line"><span class="keyword">case</span> variable <span class="keyword">in</span></div><div class="line">    pattern ) ...;;</div><div class="line"><span class="keyword">esac</span></div></pre></td></tr></table></figure>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><pre><code>1. break 命令：跳出循环
+2. : 命令：是一个空命令，相当于 true 的别名
+3. continue 命令：跳到下次循环
+4. echo 命令：建议使用 printf 命令，用法类 c 
+5. trap 命令：用于指定在接收信号后将要采取的行动
+</code></pre><h4 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h4><pre><code>1. 个人比较喜欢 $(command) 的方式来实现，也可以使用 `command`，返回结构为命令的输出
+2. $((...)) 可以求值表达式
+3. 参数扩展：
+    ${param:-default} 若 param 为空，则返回 default，而 param 并未变化
+    ${param:=value}   若 param 为空，则将 param 赋值为 value
+    ${param:?value}   若 param 为空，则输出 param:value 并异常终止脚本
+    ${param:+value}   若 param 存在且不为空，则返回 value
+    ${#param} param 的长度
+    ${param%word}  从 param 尾部删除最短匹配
+    ${param%%word} 从 param 尾部删除最长匹配
+    ${param#word}  从 param 头部删除最短匹配
+    ${param##word} 从 param 头部删除最长匹配
+</code></pre><h4 id="调试脚本程序"><a href="#调试脚本程序" class="headerlink" title="调试脚本程序"></a>调试脚本程序</h4><ul>
+<li>-n | set -n：只检查语法，不执行命令</li>
+<li>-v | set -v：在执行命令之前回显它们</li>
+<li>-x | set -x：在执行命令之后回显它们</li>
+<li>-u | set -u：若使用了未定义的变量，就给出错误信息</li>
+</ul>
+<hr>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3>
       
     </div>
 
@@ -492,7 +540,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-who"><span class="nav-number">1.</span> <span class="nav-text">linux-who</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-语法"><span class="nav-number">2.</span> <span class="nav-text">shell 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件"><span class="nav-number">2.2.</span> <span class="nav-text">条件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-who"><span class="nav-number">1.</span> <span class="nav-text">linux-who</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-语法"><span class="nav-number">2.</span> <span class="nav-text">shell 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件"><span class="nav-number">2.2.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制结构"><span class="nav-number">2.3.</span> <span class="nav-text">控制结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令"><span class="nav-number">2.4.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令执行"><span class="nav-number">2.5.</span> <span class="nav-text">命令执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试脚本程序"><span class="nav-number">2.6.</span> <span class="nav-text">调试脚本程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">3.</span> <span class="nav-text">文件操作</span></a></li></ol></div>
             
           </div>
         </section>
