@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="menory, blog" />
 
 
 
@@ -84,15 +84,15 @@
 
 
 
-<meta name="description" content="个人分享">
+<meta name="description" content="个人分享, 个人总结">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Menory">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Menory">
-<meta property="og:description" content="个人分享">
+<meta property="og:title" content="menory">
+<meta property="og:url" content="http://menory.com/index.html">
+<meta property="og:site_name" content="menory">
+<meta property="og:description" content="个人分享, 个人总结">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Menory">
-<meta name="twitter:description" content="个人分享">
+<meta name="twitter:title" content="menory">
+<meta name="twitter:description" content="个人分享, 个人总结">
 
 
 
@@ -113,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://menory.com/"/>
 
-  <title> Menory </title>
+  <title> menory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +148,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Menory</span>
+      <span class="site-title">menory</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -248,7 +248,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/note-01/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/05/note-01/" itemprop="url">
                   读书笔记_Linux程序设计_泛读
                 </a>
               
@@ -262,8 +262,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T04:47:15+08:00" content="2016-08-10">
-              2016-08-10
+            <time itemprop="dateCreated" datetime="2016-10-05T22:43:57+08:00" content="2016-10-05">
+              2016-10-05
             </time>
           </span>
 
@@ -310,8 +310,7 @@
 
       
         
-          
-            <h3 id="linux-who"><a href="#linux-who" class="headerlink" title="linux-who"></a>linux-who</h3><p>显示目前登入系统的用户信息</p>
+          <h3 id="linux-who"><a href="#linux-who" class="headerlink" title="linux-who"></a>linux-who</h3><p>显示目前登入系统的用户信息</p>
 <blockquote>
 <p>-H or –heading：显示各栏位的标题信息列<br>-u：显示闲置时间，若该用户在前一分钟之内有进行任何动作，则标识“.”，如<br>果该用户已超过24小时没有任何动作，则标志“old”<br>-m：同 who am i<br>-q or –count：只显示登入系统的帐号名称和总人数</p>
 </blockquote>
@@ -324,80 +323,11 @@
 <li>等号两边不能有空格</li>
 <li>read 命令可以将用户的输入赋值给一个变量，回车键结束命令</li>
 </ul>
-<hr>
-<p><strong>注意：</strong></p>
-<ol>
-<li><p>环境变量</p>
-<ol>
-<li>$HOME：当前用户的家目录</li>
-<li>$PATH：以冒号分隔的用来搜索命令的目录列表</li>
-<li>$PS1：命令提示符，通常是 $ 字符，但在 bash 中，可以使用一些更复杂的值，[\u@\h \W]\$，即[用户名@机器名 当前目录名]$提示符</li>
-<li>$PS2：二级提示符，用来提示后续输出，通常是 &gt; 字符</li>
-<li>$IFS：输入域分隔符，当 shell 读取输入时，用来分隔单词的一组字符，通常是空格、制表、换行</li>
-<li>$0：shell 脚本的名称</li>
-<li>$#：传递给脚本的参数个数</li>
-<li>$$：shell 脚本的进程号，脚本程序通常会用它生成一个唯一的临时文件。如 /tmp/tmpfile_$$</li>
-</ol>
-</li>
-<li><p>参数变量<br>如果脚本程序在调用时带有参数，一些额外的变量就会被创建，即使没有传递任何参数，环境变量 $# 也依然存在，只是值为0</p>
-<ol>
-<li>$1, $2, …：脚本程序的参数</li>
-<li>$*：在一个变量中列出所有的参数，各个参数之间用 $IFS 中的第一个字符分隔</li>
-<li>$@：$* 变体，不使用 $IFS</li>
-</ol>
-</li>
-</ol>
-<hr>
-<h4 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h4><p>test 或 [ ：对条件进行测试判断，可以使用的条件类型大概分为三类：</p>
-<ul>
-<li>字符串比较<ul>
-<li>=  两个字符串相同则结果为真</li>
-<li>!= 两个字符串不同则结果为真</li>
-<li>-n string 字符串不为空则结果为真</li>
-<li>-z string 字符串为 null（一个空串）则结果为真</li>
-</ul>
-</li>
-<li>算术比较<ul>
-<li>-eq -ne -gt -ge -lt -le !</li>
-</ul>
-</li>
-<li>与文件相关的条件测试<ul>
-<li>-d [-e|-f]</li>
-<li>-r（可读）  -w（可写） -x（可执行）</li>
-<li>-s 文件大小不为0则结果为真</li>
-<li>-u 文件的 set-user-id 位被设置则结果为真</li>
-<li>-g 文件的 set-group-id 位被设置则结果为真</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-f</span> fred.c</div><div class="line"><span class="keyword">then</span></div><div class="line">...</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="comment"># [ 和被检查条件之间要有空格，then 和 if 在同一行时必须用 ; 将 then隔开</span></div><div class="line"><span class="keyword">if</span> [ <span class="_">-f</span> fred.c ]; <span class="keyword">then</span></div><div class="line">...</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
-<h4 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># if 语句</span></div><div class="line"><span class="keyword">if</span> condition; <span class="keyword">then</span></div><div class="line">...</div><div class="line"><span class="keyword">elif</span> condition; <span class="keyword">then</span></div><div class="line">...</div><div class="line"><span class="keyword">else</span></div><div class="line">...</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="comment"># 1. [ $a = "yes" ] 当 $a 空字符串时，致使[ = "yes" ]而出错，可以给变量加上引号，即[ "" = "yes" ]</span></div><div class="line"><span class="comment"># 2. echo -n 可以去掉换行符</span></div><div class="line"></div><div class="line"><span class="comment"># for 语句</span></div><div class="line"><span class="keyword">for</span> variable <span class="keyword">in</span> values; <span class="keyword">do</span></div><div class="line">...</div><div class="line"><span class="keyword">done</span></div><div class="line"></div><div class="line"><span class="comment"># while 语句，条件为真时才反复执行</span></div><div class="line"><span class="keyword">while</span> condition; <span class="keyword">do</span></div><div class="line">...</div><div class="line"><span class="keyword">done</span></div><div class="line"></div><div class="line"><span class="comment"># until 语句，反复执行直到条件为真</span></div><div class="line">until condition; <span class="keyword">do</span></div><div class="line">...</div><div class="line"><span class="keyword">done</span> </div><div class="line"></div><div class="line"><span class="comment"># case 语句，正则</span></div><div class="line"><span class="keyword">case</span> variable <span class="keyword">in</span></div><div class="line">    pattern ) ...;;</div><div class="line"><span class="keyword">esac</span></div></pre></td></tr></table></figure>
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><pre><code>1. break 命令：跳出循环
-2. : 命令：是一个空命令，相当于 true 的别名
-3. continue 命令：跳到下次循环
-4. echo 命令：建议使用 printf 命令，用法类 c 
-5. trap 命令：用于指定在接收信号后将要采取的行动
-</code></pre><h4 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h4><pre><code>1. 个人比较喜欢 $(command) 的方式来实现，也可以使用 `command`，返回结构为命令的输出
-2. $((...)) 可以求值表达式
-3. 参数扩展：
-    ${param:-default} 若 param 为空，则返回 default，而 param 并未变化
-    ${param:=value}   若 param 为空，则将 param 赋值为 value
-    ${param:?value}   若 param 为空，则输出 param:value 并异常终止脚本
-    ${param:+value}   若 param 存在且不为空，则返回 value
-    ${#param} param 的长度
-    ${param%word}  从 param 尾部删除最短匹配
-    ${param%%word} 从 param 尾部删除最长匹配
-    ${param#word}  从 param 头部删除最短匹配
-    ${param##word} 从 param 头部删除最长匹配
-</code></pre><h4 id="调试脚本程序"><a href="#调试脚本程序" class="headerlink" title="调试脚本程序"></a>调试脚本程序</h4><ul>
-<li>-n | set -n：只检查语法，不执行命令</li>
-<li>-v | set -v：在执行命令之前回显它们</li>
-<li>-x | set -x：在执行命令之后回显它们</li>
-<li>-u | set -u：若使用了未定义的变量，就给出错误信息</li>
-</ul>
-<hr>
-<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/05/note-01/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -445,8 +375,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/04/frame/" itemprop="url">
-                  个人开发框架
+                <a class="post-title-link" href="/2016/09/02/xhprof/" itemprop="url">
+                  使用 xhprof 来分析 php 性能
                 </a>
               
             
@@ -459,8 +389,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-04T20:43:51+08:00" content="2016-08-04">
-              2016-08-04
+            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
+              2016-09-02
             </time>
           </span>
 
@@ -508,149 +438,21 @@
       
         
           
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一个编程开发的新手，我很喜欢去尝试和学习一些新的技术和知识，来提升自己的个人能力，<br>个人也偏好学习一些底层相关的知识，虽然这几年来的学习让我有了很大的提升，但是自己感觉学<br>习的东西很多，也很杂。有些东西学习后，因为公司的开发条件限制只能是了解过，并没有真正的<br>去实践它，于是便有了自己编写个人开发框架的想法，编写框架可以很好的去实践自己的一些想法<br>，也能去思考一些架构的问题，更可以糅合自己掌握的相关技能。</p>
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>menory-framework 的运行环境是基于 PHP7、Nginx 和 Swoole 扩展的，只要是使用 Swoole 做应<br>用服务，Nginx 做代理转发。menory-framework 简单可以划分为框架、服务和应用三个部分，服务<br>是基于 Swoole 扩展而给应用相关的网络服务，而应用可以有多种，例如以 MVC 模式为主的 Web<br>应用，最后的框架则是服务和应用的糅合剂，给他们提供一个可运行环境。</p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h4 id="框架目录"><a href="#框架目录" class="headerlink" title="框架目录"></a>框架目录</h4><blockquote>
-<p>/app        一些内置的框架管理应用目录<br>/bin        管理脚本目录<br>/etc        应用服务的配置文件目录<br>/factory    ###<br>/var        存放应用服务运行时要改变的数据 pid, log<br>/vendor     框架使用 composer 来管理依赖关系，效果同 composer 的设定</p>
-</blockquote>
-<p><strong>注意：</strong> </p>
-<ul>
-<li>框架的核心代码也以第三方扩展的方式存放在 /vendor/menory</li>
-<li>/var/pid/{appName} 存放应用服务运行时的进程 pid，如 master 和 manager 进程的pid</li>
+            <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>extension=xhprof.so</li>
+<li>xhprof.output_dir=/tmp <em>储存 XHProf 运行数据的默认目录</em></li>
 </ul>
-<h4 id="应用目录（MVC-模式）"><a href="#应用目录（MVC-模式）" class="headerlink" title="应用目录（MVC 模式）"></a>应用目录（MVC 模式）</h4><blockquote>
-<p>/Controller    控制器文件目录<br>/Configs       应用级配置文件目录<br>/Hooks         钩子文件目录<br>/View          视图文件目录<br>/Libs          应用库目录</p>
-</blockquote>
-<h3 id="框架使用"><a href="#框架使用" class="headerlink" title="框架使用"></a>框架使用</h3><p>框架的使用很简单，主要可以分为下面几个步骤：</p>
-<ul>
-<li>使用 composer 安装框架：composer create-project menory/menory-framework frame “1.0.0”</li>
-<li>运行配置文件创建脚本生成相关配置：php bin/createConf.php [应用名称]</li>
-<li>进行相关的 Nginx 配置</li>
-<li>运行应用启动脚本：php bin/app.php start [应用名称] –debug（调试模式） –daemon（后台运行）</li>
+<h4 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h4><ul>
+<li><code>xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);</code><ul>
+<li>启动 xhprof 性能分析器</li>
 </ul>
-<h3 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h3><p>以 Http 服务为例，在 swoole_http_server</p>
-<h3 id="管理脚本"><a href="#管理脚本" class="headerlink" title="管理脚本"></a>管理脚本</h3><h4 id="bin-app-php-应用管理脚本"><a href="#bin-app-php-应用管理脚本" class="headerlink" title="bin/app.php 应用管理脚本"></a>bin/app.php 应用管理脚本</h4><h4 id="bin-createConf-php-相关配置文件创建脚本"><a href="#bin-createConf-php-相关配置文件创建脚本" class="headerlink" title="bin/createConf.php 相关配置文件创建脚本"></a>bin/createConf.php 相关配置文件创建脚本</h4><h4 id="bin-inotify-sh-目录监听脚本"><a href="#bin-inotify-sh-目录监听脚本" class="headerlink" title="bin/inotify.sh 目录监听脚本"></a>bin/inotify.sh 目录监听脚本</h4><h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>定时器，周期性的执行某项任务。在实际的开发中，定时任务是非常常用的，它可以把一些复杂的<br>业务逻辑解耦，例如商品的开奖、分佣、审核等等，也可以用来实现倒计时开奖，消息通知失败的<br>重试机制等等。而框架中根据 swoole 的特点，也考虑到怕一些费时定时任务影响其他定时任务的<br>执行，所以采用了 swoole 的进程管理模块和毫秒定时器来实现，让每一个定时任务都是一个独立<br>的进程。</p>
-<p>是否进行下次定时任务</p>
-<p>是否在处理定时任务中</p>
-<h3 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/03/Linux-01/" itemprop="url">
-                  Linux 学习笔记01
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-03T20:49:36+08:00" content="2016-08-03">
-              2016-08-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Reactor-模式"><a href="#Reactor-模式" class="headerlink" title="Reactor 模式"></a>Reactor 模式</h3><ul>
-<li>要求主线程（ I/O 处理单元）负责监听文件描述符上是否有事件发生，有则立即将事件通知工作线程（逻辑单元）</li>
-<li>读写数据，接受新的连接，以及处理客户请求均在工作线程中完成</li>
+</li>
+<li><code>xhprof_disable();</code><ul>
+<li>停止 xhprof 性能采样分析器</li>
 </ul>
-<h4 id="Reactor-模式工作流程："><a href="#Reactor-模式工作流程：" class="headerlink" title="Reactor 模式工作流程："></a>Reactor 模式工作流程：</h4><ol>
-<li></li>
-</ol>
+</li>
+<li><code>xhprof_sample_enable 和 xhprof_sample_disable</code></li>
+</ul>
 
           
         
@@ -700,126 +502,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/03/bookmark/" itemprop="url">
-                  我的书签
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-03T02:43:17+08:00" content="2016-08-03">
-              2016-08-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><a href="http://m.blog.csdn.net" target="_blank" rel="external">CSDN博客</a></li>
-</ol>
-<blockquote>
-<p>个人感觉它是一个不错的博客网站</p>
-<p>关键词：vagrant composer linux</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/03/yaml/" itemprop="url">
+                <a class="post-title-link" href="/2016/09/02/yaml/" itemprop="url">
                   yaml 语法
                 </a>
               
@@ -833,8 +516,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-03T00:35:41+08:00" content="2016-08-03">
-              2016-08-03
+            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
+              2016-09-02
             </time>
           </span>
 
@@ -951,8 +634,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/27/c-01/" itemprop="url">
-                  C 学习笔记_网络与套接字
+                <a class="post-title-link" href="/2016/09/02/linux-02/" itemprop="url">
+                  Linux 学习笔记02 -- Linux 文件属性详细说明
                 </a>
               
             
@@ -965,8 +648,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-27T01:32:16+08:00" content="2016-07-27">
-              2016-07-27
+            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
+              2016-09-02
             </time>
           </span>
 
@@ -979,8 +662,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -1014,35 +697,22 @@
       
         
           
-            <p>协议，客户端与服务端的结构化对话<br>套接字不是传统意义上的数据流<br>他是双向的，他既可以用作输入也可以用作输出</p>
-<h4 id="BLAB-服务器连接网络四部曲"><a href="#BLAB-服务器连接网络四部曲" class="headerlink" title="BLAB 服务器连接网络四部曲"></a>BLAB 服务器连接网络四部曲</h4><ul>
-<li>B 绑定端口，</li>
-<li>L 监听</li>
-<li>A 接受连接</li>
-<li>B 开始通信</li>
+            <p>Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[root@VM_145_23_centos shell]<span class="comment"># ll -lih</span></div><div class="line">total 8.0K</div><div class="line">99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh</div><div class="line"></div><div class="line"><span class="comment"># 99463：inode</span></div><div class="line"><span class="comment"># -rw-r--r--：文件种类和权限</span></div><div class="line"><span class="comment"># 1：硬链接个数</span></div><div class="line"><span class="comment"># root：属主</span></div><div class="line"><span class="comment"># root：所归属的组</span></div><div class="line"><span class="comment"># 39：文件或目录的大小</span></div><div class="line"><span class="comment"># Aug  7 20:53：最后访问或修改时间</span></div><div class="line"><span class="comment"># shell-01.sh：文件名或目录名</span></div></pre></td></tr></table></figure>
+<h3 id="inode"><a href="#inode" class="headerlink" title="inode"></a>inode</h3><pre><code>inode，索引节点。每个存储设备或存储设备的分区（存储设备拉硬盘、U盘等）被格式化为文
+件系统后，应该有两部分：
+    1. inode：用来存储数据的信息，如文件的大小、属主、读写权限等
+    2. block：用来存储数据
+</code></pre><h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><ul>
+<li>用 ln 可以创建链接文件，语法：ln 源文件 目标文件</li>
+<li>在 Linux 文件系统中，inode 值相同的文件是硬链接文件<ul>
+<li>硬链接不能为目录创建</li>
+<li>当一个其中一个硬链接文件的内容，互为硬链接文件的内容也会变化，若是删除时，其他不影响</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#include &lt;sys/socket.h&gt;</span></div><div class="line"><span class="comment">#include &lt;arpa/inet.h&gt;</span></div><div class="line"></div><div class="line">int listener_d = socket(PF_INET, SOCK_STREAM, 0);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> (listener_d == 1)</div><div class="line">    error(<span class="string">"Not open socket!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_<span class="keyword">in</span> name;</div><div class="line"></div><div class="line">name.sin_family      = PF_INET;</div><div class="line">name.sin_port        = (<span class="keyword">in</span>_port_t)htons(3000);</div><div class="line">name.sin_addr.s_addr = htonl(INADDR_ANY);</div><div class="line"></div><div class="line">int c = <span class="built_in">bind</span>(listener_d, (struct sockaddr *)&amp;name, sizeof(name));</div><div class="line"></div><div class="line"><span class="keyword">if</span> (c == -1)</div><div class="line">    error(<span class="string">"Not bind port!"</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> (listen(listener_d, 10) == -1)</div><div class="line">    error(<span class="string">"Not listen!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_storage_client_addr;</div><div class="line"></div><div class="line">unsigned int address_size = sizeof(client_addr);</div><div class="line">int connect_d = accept(listener_d, (struct sockaddr *)&amp;client_addr, &amp;address_size);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (connect_d == -1)</div><div class="line">    error(<span class="string">"Not accept!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">char *msg = <span class="string">"xx\r\nzz\r\n"</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (send(connect_d, msg, strlen(msg), 0) == -1)</div><div class="line">    error(<span class="string">"Not send!"</span>);</div></pre></td></tr></table></figure>
-<p><strong>注意：</strong> 当某个端口被绑定了套接字，在接下来的30秒内，操作系统不允许任何程序再绑定它</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int reuse = 1;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (setsockopt(listener_d, SOL_SOCKET, SO_REUSEADDR, (char *)&amp;reuse, sizeof(int)) == -1)</div><div class="line">    error(<span class="string">"Net set sockopt!"</span>);</div></pre></td></tr></table></figure>
-<p> 从客户端读取数据</p>
-<p> &lt;读了几个字节&gt; = recv(&lt;描述符&gt;, &lt;缓冲区&gt;, &lt;要读取几个字节&gt;, 0);</p>
-<p><strong>注意：</strong></p>
-<ul>
-<li>字符串不以 \0 结尾</li>
-<li>当用户在 telent 输入文本时，字符串以 \r\n 结尾</li>
-<li>recv() 将返回字符个数，如果发生错误就返回-1，如果客户端关闭了连接，就返回0</li>
-<li>recv() 调用不一定能一次接收到所有字符</li>
+</li>
+<li>-s 选项可以创建软链接，链接文件不能独立存在</li>
 </ul>
-<hr>
-<p><strong>客户端：</strong></p>
-<ul>
-<li>连接远程端口</li>
-<li>开始通信</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int s = socket(PF_INET, SOCK_STREAM, 0);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_<span class="keyword">in</span> si;</div><div class="line"></div><div class="line">memset(&amp;si, 0, sizeof(si));</div><div class="line"></div><div class="line">si.sin_family      = PF_INET;</div><div class="line">si.sin_addr.s_addr = inet_addr(<span class="string">"182.254.227.60"</span>);</div><div class="line">si.sin_port        = htons(80);</div><div class="line"></div><div class="line"></div><div class="line">connect(s, (struct sockaddr *) &amp;si, sizeof(si));</div></pre></td></tr></table></figure>
-<p>创建域名套接字</p>
-<p>getaddrinfo() 获取域名的地址，需要 netdb.h 文件，会在堆上创建一种名字资源的新数据结构</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#include &lt;netdb.h&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">struct addrinfo *res;</div><div class="line"></div><div class="line">struct addrinfo hints;</div><div class="line"></div><div class="line"></div><div class="line">memset(&amp;hints, 0, sizeof(hints));</div><div class="line"></div><div class="line"></div><div class="line">hints.ai_family   = PF_UNSPEC;</div><div class="line">hints.ai_socktype = SOCK_STREAM;</div><div class="line"></div><div class="line"></div><div class="line">getaddrinfo(<span class="string">"hexo.menory.com"</span>, <span class="string">"80"</span>, &amp;hints, &amp;res);</div><div class="line"></div><div class="line"></div><div class="line">int s = socket(res-&gt;ai_family, res-&gt;ai_socktype, res-&gt;ai_protocol);</div><div class="line"></div><div class="line"></div><div class="line">connect(s, res-&gt;ai_addr, res-&gt;ai_addrlen);</div><div class="line"></div><div class="line"></div><div class="line">freeaddrinfo(res);</div></pre></td></tr></table></figure>
+
           
         
       
@@ -1091,7 +761,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/22/conf/" itemprop="url">
+                <a class="post-title-link" href="/2016/09/02/conf/" itemprop="url">
                   Nginx 配置文件
                 </a>
               
@@ -1105,8 +775,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T02:04:47+08:00" content="2016-07-22">
-              2016-07-22
+            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
+              2016-09-02
             </time>
           </span>
 
@@ -1351,8 +1021,8 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
             
               
                 
-                <a class="post-title-link" href="/2016/07/22/xhprof/" itemprop="url">
-                  使用 xhprof 来分析 php 性能
+                <a class="post-title-link" href="/2016/09/02/c-01/" itemprop="url">
+                  C 学习笔记_网络与套接字
                 </a>
               
             
@@ -1365,8 +1035,148 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T01:54:31+08:00" content="2016-07-22">
-              2016-07-22
+            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>协议，客户端与服务端的结构化对话<br>套接字不是传统意义上的数据流<br>他是双向的，他既可以用作输入也可以用作输出</p>
+<h4 id="BLAB-服务器连接网络四部曲"><a href="#BLAB-服务器连接网络四部曲" class="headerlink" title="BLAB 服务器连接网络四部曲"></a>BLAB 服务器连接网络四部曲</h4><ul>
+<li>B 绑定端口，</li>
+<li>L 监听</li>
+<li>A 接受连接</li>
+<li>B 开始通信</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#include &lt;sys/socket.h&gt;</span></div><div class="line"><span class="comment">#include &lt;arpa/inet.h&gt;</span></div><div class="line"></div><div class="line">int listener_d = socket(PF_INET, SOCK_STREAM, 0);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> (listener_d == 1)</div><div class="line">    error(<span class="string">"Not open socket!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_<span class="keyword">in</span> name;</div><div class="line"></div><div class="line">name.sin_family      = PF_INET;</div><div class="line">name.sin_port        = (<span class="keyword">in</span>_port_t)htons(3000);</div><div class="line">name.sin_addr.s_addr = htonl(INADDR_ANY);</div><div class="line"></div><div class="line">int c = <span class="built_in">bind</span>(listener_d, (struct sockaddr *)&amp;name, sizeof(name));</div><div class="line"></div><div class="line"><span class="keyword">if</span> (c == -1)</div><div class="line">    error(<span class="string">"Not bind port!"</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> (listen(listener_d, 10) == -1)</div><div class="line">    error(<span class="string">"Not listen!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_storage_client_addr;</div><div class="line"></div><div class="line">unsigned int address_size = sizeof(client_addr);</div><div class="line">int connect_d = accept(listener_d, (struct sockaddr *)&amp;client_addr, &amp;address_size);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (connect_d == -1)</div><div class="line">    error(<span class="string">"Not accept!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">char *msg = <span class="string">"xx\r\nzz\r\n"</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (send(connect_d, msg, strlen(msg), 0) == -1)</div><div class="line">    error(<span class="string">"Not send!"</span>);</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong> 当某个端口被绑定了套接字，在接下来的30秒内，操作系统不允许任何程序再绑定它</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int reuse = 1;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (setsockopt(listener_d, SOL_SOCKET, SO_REUSEADDR, (char *)&amp;reuse, sizeof(int)) == -1)</div><div class="line">    error(<span class="string">"Net set sockopt!"</span>);</div></pre></td></tr></table></figure>
+<p> 从客户端读取数据</p>
+<p> &lt;读了几个字节&gt; = recv(&lt;描述符&gt;, &lt;缓冲区&gt;, &lt;要读取几个字节&gt;, 0);</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>字符串不以 \0 结尾</li>
+<li>当用户在 telent 输入文本时，字符串以 \r\n 结尾</li>
+<li>recv() 将返回字符个数，如果发生错误就返回-1，如果客户端关闭了连接，就返回0</li>
+<li>recv() 调用不一定能一次接收到所有字符</li>
+</ul>
+<hr>
+<p><strong>客户端：</strong></p>
+<ul>
+<li>连接远程端口</li>
+<li>开始通信</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int s = socket(PF_INET, SOCK_STREAM, 0);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_<span class="keyword">in</span> si;</div><div class="line"></div><div class="line">memset(&amp;si, 0, sizeof(si));</div><div class="line"></div><div class="line">si.sin_family      = PF_INET;</div><div class="line">si.sin_addr.s_addr = inet_addr(<span class="string">"182.254.227.60"</span>);</div><div class="line">si.sin_port        = htons(80);</div><div class="line"></div><div class="line"></div><div class="line">connect(s, (struct sockaddr *) &amp;si, sizeof(si));</div></pre></td></tr></table></figure>
+<p>创建域名套接字</p>
+<p>getaddrinfo() 获取域名的地址，需要 netdb.h 文件，会在堆上创建一种名字资源的新数据结构</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#include &lt;netdb.h&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">struct addrinfo *res;</div><div class="line"></div><div class="line">struct addrinfo hints;</div><div class="line"></div><div class="line"></div><div class="line">memset(&amp;hints, 0, sizeof(hints));</div><div class="line"></div><div class="line"></div><div class="line">hints.ai_family   = PF_UNSPEC;</div><div class="line">hints.ai_socktype = SOCK_STREAM;</div><div class="line"></div><div class="line"></div><div class="line">getaddrinfo(<span class="string">"hexo.menory.com"</span>, <span class="string">"80"</span>, &amp;hints, &amp;res);</div><div class="line"></div><div class="line"></div><div class="line">int s = socket(res-&gt;ai_family, res-&gt;ai_socktype, res-&gt;ai_protocol);</div><div class="line"></div><div class="line"></div><div class="line">connect(s, res-&gt;ai_addr, res-&gt;ai_addrlen);</div><div class="line"></div><div class="line"></div><div class="line">freeaddrinfo(res);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/02/frame/" itemprop="url">
+                  个人开发框架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
+              2016-09-02
             </time>
           </span>
 
@@ -1414,22 +1224,31 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
       
         
           
-            <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
-<li>extension=xhprof.so</li>
-<li>xhprof.output_dir=/tmp <em>储存 XHProf 运行数据的默认目录</em></li>
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一个编程开发的新手，我很喜欢去尝试和学习一些新的技术和知识，来提升自己的个人能力，<br>个人也偏好学习一些底层相关的知识，虽然这几年来的学习让我有了很大的提升，但是自己感觉学<br>习的东西很多，也很杂。有些东西学习后，因为公司的开发条件限制只能是了解过，并没有真正的<br>去实践它，于是便有了自己编写个人开发框架的想法，编写框架可以很好的去实践自己的一些想法<br>，也能去思考一些架构的问题，更可以糅合自己掌握的相关技能。</p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>menory-framework 的运行环境是基于 PHP7、Nginx 和 Swoole 扩展的，只要是使用 Swoole 做应<br>用服务，Nginx 做代理转发。menory-framework 简单可以划分为框架、服务和应用三个部分，服务<br>是基于 Swoole 扩展而给应用相关的网络服务，而应用可以有多种，例如以 MVC 模式为主的 Web<br>应用，最后的框架则是服务和应用的糅合剂，给他们提供一个可运行环境。</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h4 id="框架目录"><a href="#框架目录" class="headerlink" title="框架目录"></a>框架目录</h4><blockquote>
+<p>/app        一些内置的框架管理应用目录<br>/bin        管理脚本目录<br>/etc        应用服务的配置文件目录<br>/factory    ###<br>/var        存放应用服务运行时要改变的数据 pid, log<br>/vendor     框架使用 composer 来管理依赖关系，效果同 composer 的设定</p>
+</blockquote>
+<p><strong>注意：</strong> </p>
+<ul>
+<li>框架的核心代码也以第三方扩展的方式存放在 /vendor/menory</li>
+<li>/var/pid/{appName} 存放应用服务运行时的进程 pid，如 master 和 manager 进程的pid</li>
 </ul>
-<h4 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h4><ul>
-<li><code>xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);</code><ul>
-<li>启动 xhprof 性能分析器</li>
+<h4 id="应用目录（MVC-模式）"><a href="#应用目录（MVC-模式）" class="headerlink" title="应用目录（MVC 模式）"></a>应用目录（MVC 模式）</h4><blockquote>
+<p>/Controller    控制器文件目录<br>/Configs       应用级配置文件目录<br>/Hooks         钩子文件目录<br>/View          视图文件目录<br>/Libs          应用库目录</p>
+</blockquote>
+<h3 id="框架使用"><a href="#框架使用" class="headerlink" title="框架使用"></a>框架使用</h3><p>框架的使用很简单，主要可以分为下面几个步骤：</p>
+<ul>
+<li>使用 composer 安装框架：composer create-project menory/menory-framework frame “1.0.0”</li>
+<li>运行配置文件创建脚本生成相关配置：php bin/createConf.php [应用名称]</li>
+<li>进行相关的 Nginx 配置</li>
+<li>运行应用启动脚本：php bin/app.php start [应用名称] –debug（调试模式） –daemon（后台运行）</li>
 </ul>
-</li>
-<li><code>xhprof_disable();</code><ul>
-<li>停止 xhprof 性能采样分析器</li>
-</ul>
-</li>
-<li><code>xhprof_sample_enable 和 xhprof_sample_disable</code></li>
-</ul>
-
+<h3 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h3><p>以 Http 服务为例，在 swoole_http_server</p>
+<h3 id="管理脚本"><a href="#管理脚本" class="headerlink" title="管理脚本"></a>管理脚本</h3><h4 id="bin-app-php-应用管理脚本"><a href="#bin-app-php-应用管理脚本" class="headerlink" title="bin/app.php 应用管理脚本"></a>bin/app.php 应用管理脚本</h4><h4 id="bin-createConf-php-相关配置文件创建脚本"><a href="#bin-createConf-php-相关配置文件创建脚本" class="headerlink" title="bin/createConf.php 相关配置文件创建脚本"></a>bin/createConf.php 相关配置文件创建脚本</h4><h4 id="bin-inotify-sh-目录监听脚本"><a href="#bin-inotify-sh-目录监听脚本" class="headerlink" title="bin/inotify.sh 目录监听脚本"></a>bin/inotify.sh 目录监听脚本</h4><h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>定时器，周期性的执行某项任务。在实际的开发中，定时任务是非常常用的，它可以把一些复杂的<br>业务逻辑解耦，例如商品的开奖、分佣、审核等等，也可以用来实现倒计时开奖，消息通知失败的<br>重试机制等等。而框架中根据 swoole 的特点，也考虑到怕一些费时定时任务影响其他定时任务的<br>执行，所以采用了 swoole 的进程管理模块和毫秒定时器来实现，让每一个定时任务都是一个独立<br>的进程。</p>
+<p>是否进行下次定时任务</p>
+<p>是否在处理定时任务中</p>
+<h3 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h3>
           
         
       
@@ -1491,14 +1310,14 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://static.menory.com/public/images/logo.jpg"
-               alt="Menory" />
-          <p class="site-author-name" itemprop="name">Menory</p>
-          <p class="site-description motion-element" itemprop="description">个人分享</p>
+               alt="menory" />
+          <p class="site-author-name" itemprop="name">menory</p>
+          <p class="site-description motion-element" itemprop="description">个人分享, 个人总结</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1549,7 +1368,7 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Menory</span>
+  <span class="author" itemprop="copyrightHolder">menory</span>
 </div>
 
 <div class="powered-by">

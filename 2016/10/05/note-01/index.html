@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="menory, blog" />
 
 
 
@@ -91,14 +91,14 @@
 /bin：二进制文件目录，用于存放启动系统时用到的程序/usr/bin：用户二进制文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记_Linux程序设计_泛读">
-<meta property="og:url" content="http://yoursite.com/2016/08/10/note-01/index.html">
-<meta property="og:site_name" content="Menory">
+<meta property="og:url" content="http://menory.com/2016/10/05/note-01/index.html">
+<meta property="og:site_name" content="menory">
 <meta property="og:description" content="linux-who显示目前登入系统的用户信息
 
 -H or –heading：显示各栏位的标题信息列-u：显示闲置时间，若该用户在前一分钟之内有进行任何动作，则标识“.”，如果该用户已超过24小时没有任何动作，则标志“old”-m：同 who am i-q or –count：只显示登入系统的帐号名称和总人数
 
 /bin：二进制文件目录，用于存放启动系统时用到的程序/usr/bin：用户二进制文件">
-<meta property="og:updated_time" content="2016-08-09T20:47:15.314Z">
+<meta property="og:updated_time" content="2016-10-05T14:43:57.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记_Linux程序设计_泛读">
 <meta name="twitter:description" content="linux-who显示目前登入系统的用户信息
@@ -126,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/10/note-01/"/>
+  <link rel="canonical" href="http://menory.com/2016/10/05/note-01/"/>
 
-  <title> 读书笔记_Linux程序设计_泛读 | Menory </title>
+  <title> 读书笔记_Linux程序设计_泛读 | menory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +159,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Menory</span>
+      <span class="site-title">menory</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -270,8 +270,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T04:47:15+08:00" content="2016-08-10">
-              2016-08-10
+            <time itemprop="dateCreated" datetime="2016-10-05T22:43:57+08:00" content="2016-10-05">
+              2016-10-05
             </time>
           </span>
 
@@ -330,6 +330,7 @@
 <li>等号两边不能有空格</li>
 <li>read 命令可以将用户的输入赋值给一个变量，回车键结束命令</li>
 </ul>
+<a id="more"></a>
 <hr>
 <p><strong>注意：</strong></p>
 <ol>
@@ -402,7 +403,17 @@
 <li>-u | set -u：若使用了未定义的变量，就给出错误信息</li>
 </ul>
 <hr>
-<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="Linux-文件结构"><a href="#Linux-文件结构" class="headerlink" title="Linux 文件结构"></a>Linux 文件结构</h4><blockquote>
+<p><a href="http://menory.com/2016/08/11/linux-02">文件</a>，除了本身包含的内容外，它还会有一个名字和一些属性，即“管理信息”。而在 Linux 中可以说一切都是文件，这意味着程序通常可以像使用文件那样使用磁盘文件、串行口、打印机和其他设备。</p>
+</blockquote>
+<pre><code>目录：是用来保存其他文件的节点号和名字的文件。删除一个文件，即删除了该文件对应的
+目录项，同时该文件的链接数减1，若链接数为0表示该节点指向的数据不再使用。
+
+文件和设备：
+    /dev/console：系统控制台，错误信息和诊断信息通常会被发送到这个设备
+    /dev/tty：
+    /dev/null：所有写向这个设备的输出都会丢弃
+</code></pre><h4 id="系统调用和设备驱动程序"><a href="#系统调用和设备驱动程序" class="headerlink" title="系统调用和设备驱动程序"></a>系统调用和设备驱动程序</h4>
       
     </div>
 
@@ -427,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/04/frame/" rel="next" title="个人开发框架">
-                <i class="fa fa-chevron-left"></i> 个人开发框架
+              <a href="/2016/09/02/xhprof/" rel="next" title="使用 xhprof 来分析 php 性能">
+                <i class="fa fa-chevron-left"></i> 使用 xhprof 来分析 php 性能
               </a>
             
           </div>
@@ -494,14 +505,14 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://static.menory.com/public/images/logo.jpg"
-               alt="Menory" />
-          <p class="site-author-name" itemprop="name">Menory</p>
-          <p class="site-description motion-element" itemprop="description">个人分享</p>
+               alt="menory" />
+          <p class="site-author-name" itemprop="name">menory</p>
+          <p class="site-description motion-element" itemprop="description">个人分享, 个人总结</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -540,7 +551,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-who"><span class="nav-number">1.</span> <span class="nav-text">linux-who</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-语法"><span class="nav-number">2.</span> <span class="nav-text">shell 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件"><span class="nav-number">2.2.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制结构"><span class="nav-number">2.3.</span> <span class="nav-text">控制结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令"><span class="nav-number">2.4.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令执行"><span class="nav-number">2.5.</span> <span class="nav-text">命令执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试脚本程序"><span class="nav-number">2.6.</span> <span class="nav-text">调试脚本程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">3.</span> <span class="nav-text">文件操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-who"><span class="nav-number">1.</span> <span class="nav-text">linux-who</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-语法"><span class="nav-number">2.</span> <span class="nav-text">shell 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件"><span class="nav-number">2.2.</span> <span class="nav-text">条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制结构"><span class="nav-number">2.3.</span> <span class="nav-text">控制结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令"><span class="nav-number">2.4.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令执行"><span class="nav-number">2.5.</span> <span class="nav-text">命令执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试脚本程序"><span class="nav-number">2.6.</span> <span class="nav-text">调试脚本程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">3.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux-文件结构"><span class="nav-number">3.1.</span> <span class="nav-text">Linux 文件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统调用和设备驱动程序"><span class="nav-number">3.2.</span> <span class="nav-text">系统调用和设备驱动程序</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -563,7 +574,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Menory</span>
+  <span class="author" itemprop="copyrightHolder">menory</span>
 </div>
 
 <div class="powered-by">

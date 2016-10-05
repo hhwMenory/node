@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="menory, blog" />
 
 
 
@@ -84,28 +84,16 @@
 
 
 
-<meta name="description" content="Reactor 模式
-要求主线程（ I/O 处理单元）负责监听文件描述符上是否有事件发生，有则立即将事件通知工作线程（逻辑单元）
-读写数据，接受新的连接，以及处理客户请求均在工作线程中完成
-
-Reactor 模式工作流程：">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux 学习笔记01">
-<meta property="og:url" content="http://yoursite.com/2016/08/03/Linux-01/index.html">
-<meta property="og:site_name" content="Menory">
-<meta property="og:description" content="Reactor 模式
-要求主线程（ I/O 处理单元）负责监听文件描述符上是否有事件发生，有则立即将事件通知工作线程（逻辑单元）
-读写数据，接受新的连接，以及处理客户请求均在工作线程中完成
-
-Reactor 模式工作流程：">
-<meta property="og:updated_time" content="2016-08-03T12:49:36.095Z">
+<meta name="description" content="个人分享, 个人总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://menory.com/tags/index.html">
+<meta property="og:site_name" content="menory">
+<meta property="og:description" content="个人分享, 个人总结">
+<meta property="og:updated_time" content="2016-10-05T12:12:40.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 学习笔记01">
-<meta name="twitter:description" content="Reactor 模式
-要求主线程（ I/O 处理单元）负责监听文件描述符上是否有事件发生，有则立即将事件通知工作线程（逻辑单元）
-读写数据，接受新的连接，以及处理客户请求均在工作线程中完成
-
-Reactor 模式工作流程：">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="个人分享, 个人总结">
 
 
 
@@ -126,9 +114,15 @@ Reactor 模式工作流程：">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/03/Linux-01/"/>
+  <link rel="canonical" href="http://menory.com/tags/"/>
 
-  <title> Linux 学习笔记01 | Menory </title>
+  <title>
+  
+
+  
+    标签 | menory
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +143,7 @@ Reactor 模式工作流程：">
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -159,7 +153,7 @@ Reactor 模式工作流程：">
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Menory</span>
+      <span class="site-title">menory</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -239,142 +233,16 @@ Reactor 模式工作流程：">
 
   <div id="posts" class="posts-expand">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Linux 学习笔记01
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-03T20:49:36+08:00" content="2016-08-03">
-              2016-08-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
+      <div class="tag-cloud">
+        <div class="tag-cloud-title">
+            暂无标签
+        </div>
+        <div class="tag-cloud-tags">
           
         </div>
-      </header>
+      </div>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h3 id="Reactor-模式"><a href="#Reactor-模式" class="headerlink" title="Reactor 模式"></a>Reactor 模式</h3><ul>
-<li>要求主线程（ I/O 处理单元）负责监听文件描述符上是否有事件发生，有则立即将事件通知工作线程（逻辑单元）</li>
-<li>读写数据，接受新的连接，以及处理客户请求均在工作线程中完成</li>
-</ul>
-<h4 id="Reactor-模式工作流程："><a href="#Reactor-模式工作流程：" class="headerlink" title="Reactor 模式工作流程："></a>Reactor 模式工作流程：</h4><ol>
-<li></li>
-</ol>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/08/03/bookmark/" rel="next" title="我的书签">
-                <i class="fa fa-chevron-left"></i> 我的书签
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/04/frame/" rel="prev" title="个人开发框架">
-                个人开发框架 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -406,28 +274,19 @@ Reactor 模式工作流程：">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://static.menory.com/public/images/logo.jpg"
-               alt="Menory" />
-          <p class="site-author-name" itemprop="name">Menory</p>
-          <p class="site-description motion-element" itemprop="description">个人分享</p>
+               alt="menory" />
+          <p class="site-author-name" itemprop="name">menory</p>
+          <p class="site-description motion-element" itemprop="description">个人分享, 个人总结</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -460,17 +319,6 @@ Reactor 模式工作流程：">
       </section>
 
       
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reactor-模式"><span class="nav-number">1.</span> <span class="nav-text">Reactor 模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Reactor-模式工作流程："><span class="nav-number">1.1.</span> <span class="nav-text">Reactor 模式工作流程：</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
-      
 
     </div>
   </aside>
@@ -489,7 +337,7 @@ Reactor 模式工作流程：">
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Menory</span>
+  <span class="author" itemprop="copyrightHolder">menory</span>
 </div>
 
 <div class="powered-by">
@@ -573,10 +421,6 @@ Reactor 模式工作流程：">
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

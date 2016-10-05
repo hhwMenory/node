@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="menory, blog" />
 
 
 
@@ -84,55 +84,15 @@
 
 
 
-<meta name="description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
-
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
-
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用 xhprof 来分析 php 性能">
-<meta property="og:url" content="http://yoursite.com/2016/07/22/xhprof/index.html">
-<meta property="og:site_name" content="Menory">
-<meta property="og:description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
-
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
-
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
-<meta property="og:updated_time" content="2016-07-21T17:54:31.603Z">
+<meta name="description" content="个人分享, 个人总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="menory">
+<meta property="og:url" content="http://menory.com/archives/2016/09/index.html">
+<meta property="og:site_name" content="menory">
+<meta property="og:description" content="个人分享, 个人总结">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 xhprof 来分析 php 性能">
-<meta name="twitter:description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
-
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
-
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
+<meta name="twitter:title" content="menory">
+<meta name="twitter:description" content="个人分享, 个人总结">
 
 
 
@@ -153,9 +113,9 @@ xhprof_sample_ena">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/22/xhprof/"/>
+  <link rel="canonical" href="http://menory.com/archives/2016/09/"/>
 
-  <title> 使用 xhprof 来分析 php 性能 | Menory </title>
+  <title> 归档 | menory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -176,7 +136,7 @@ xhprof_sample_ena">
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -186,7 +146,7 @@ xhprof_sample_ena">
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Menory</span>
+      <span class="site-title">menory</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -264,149 +224,251 @@ xhprof_sample_ena">
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
+
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 7 篇日志。 继续努力。
+    </span>
+
     
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                使用 xhprof 来分析 php 性能
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T01:54:31+08:00" content="2016-07-22">
-              2016-07-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
-      
-        <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
-<li>extension=xhprof.so</li>
-<li>xhprof.output_dir=/tmp <em>储存 XHProf 运行数据的默认目录</em></li>
-</ul>
-<h4 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h4><ul>
-<li><code>xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);</code><ul>
-<li>启动 xhprof 性能分析器</li>
-</ul>
-</li>
-<li><code>xhprof_disable();</code><ul>
-<li>停止 xhprof 性能采样分析器</li>
-</ul>
-</li>
-<li><code>xhprof_sample_enable 和 xhprof_sample_disable</code></li>
-</ul>
-
-      
-    </div>
-
-    <div>
       
         
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/22/conf/" rel="prev" title="Nginx 配置文件">
-                Nginx 配置文件 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
         </div>
       
+      
 
       
-      
-    </footer>
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/09/02/xhprof/" itemprop="url">
+              
+                <span itemprop="name">使用 xhprof 来分析 php 性能</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-02T16:21:44+08:00"
+              content="2016-09-02" >
+          09-02
+        </time>
+      </div>
+
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
+    
+
       
-    </div>
-  </div>
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/09/02/yaml/" itemprop="url">
+              
+                <span itemprop="name">yaml 语法</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-02T16:21:44+08:00"
+              content="2016-09-02" >
+          09-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/09/02/linux-02/" itemprop="url">
+              
+                <span itemprop="name">Linux 学习笔记02 -- Linux 文件属性详细说明</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-02T16:21:44+08:00"
+              content="2016-09-02" >
+          09-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/09/02/conf/" itemprop="url">
+              
+                <span itemprop="name">Nginx 配置文件</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-02T16:21:44+08:00"
+              content="2016-09-02" >
+          09-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/09/02/c-01/" itemprop="url">
+              
+                <span itemprop="name">C 学习笔记_网络与套接字</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-02T16:21:44+08:00"
+              content="2016-09-02" >
+          09-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/09/02/frame/" itemprop="url">
+              
+                <span itemprop="name">个人开发框架</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-02T16:21:44+08:00"
+              content="2016-09-02" >
+          09-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+  </section>
+
+  
+
 
 
           </div>
@@ -414,10 +476,6 @@ xhprof_sample_ena">
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -437,28 +495,19 @@ xhprof_sample_ena">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://static.menory.com/public/images/logo.jpg"
-               alt="Menory" />
-          <p class="site-author-name" itemprop="name">Menory</p>
-          <p class="site-description motion-element" itemprop="description">个人分享</p>
+               alt="menory" />
+          <p class="site-author-name" itemprop="name">menory</p>
+          <p class="site-description motion-element" itemprop="description">个人分享, 个人总结</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -491,17 +540,6 @@ xhprof_sample_ena">
       </section>
 
       
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内置函数"><span class="nav-number">2.</span> <span class="nav-text">内置函数</span></a></li></ol></div>
-            
-          </div>
-        </section>
-      
 
     </div>
   </aside>
@@ -520,7 +558,7 @@ xhprof_sample_ena">
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Menory</span>
+  <span class="author" itemprop="copyrightHolder">menory</span>
 </div>
 
 <div class="powered-by">
@@ -604,9 +642,11 @@ xhprof_sample_ena">
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
