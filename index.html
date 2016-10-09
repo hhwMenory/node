@@ -248,6 +248,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/05/go-01/" itemprop="url">
+                  go 学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T23:51:20+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/go/" itemprop="url" rel="index">
+                    <span itemprop="name">go</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="array"><a href="#array" class="headerlink" title="array"></a>array</h4><ul>
+<li>值类型，赋值和传参都会复制数组，而不是指针</li>
+</ul>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><ul>
+<li>通过内部指针和相关属性引用数组片段，以实现变长方案</li>
+<li>引用类型，但自身是结构体，值拷贝传递</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">struct Slice &#123;</div><div class="line">    byte* array</div><div class="line"></div><div class="line">    // 若 slice == nil，那么 len、<span class="built_in">cap</span> 结果都等于 0</div><div class="line">    uintgo len  // 表示可用元素数量，读写操作不能超过该限制</div><div class="line">    uintgo <span class="built_in">cap</span>  // 表示最大扩张容量，不能超出数组限制</div><div class="line">&#125;</div><div class="line"></div><div class="line">// data：0 1 2 3 4</div><div class="line">data := [...]int&#123;0, 1, 2, 3, 4&#125;</div><div class="line"></div><div class="line">// data：2 3</div><div class="line">slice := data[2:4] // [low:high:max], len: high - low, <span class="built_in">cap</span>: max - low</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/05/go-01/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/05/note-01/" itemprop="url">
                   读书笔记_Linux程序设计_泛读
                 </a>
@@ -1317,7 +1439,7 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1325,7 +1447,7 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

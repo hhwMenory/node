@@ -84,55 +84,37 @@
 
 
 
-<meta name="description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
+<meta name="description" content="变量array
+值类型，赋值和传参都会复制数组，而不是指针
 
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
+slice
+通过内部指针和相关属性引用数组片段，以实现变长方案
+引用类型，但自身是结构体，值拷贝传递
 
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
+1234567891011121314struct Slice &amp;#123;    byte* array    // 若 slice == nil，那么 len、cap 结果都等于 0    uintgo len  // 表示可用元">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 xhprof 来分析 php 性能">
-<meta property="og:url" content="http://menory.com/2016/09/02/xhprof/index.html">
+<meta property="og:title" content="go 学习笔记">
+<meta property="og:url" content="http://menory.com/2016/10/05/go-01/index.html">
 <meta property="og:site_name" content="menory">
-<meta property="og:description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
+<meta property="og:description" content="变量array
+值类型，赋值和传参都会复制数组，而不是指针
 
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
+slice
+通过内部指针和相关属性引用数组片段，以实现变长方案
+引用类型，但自身是结构体，值拷贝传递
 
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
-<meta property="og:updated_time" content="2016-07-21T17:54:31.603Z">
+1234567891011121314struct Slice &amp;#123;    byte* array    // 若 slice == nil，那么 len、cap 结果都等于 0    uintgo len  // 表示可用元">
+<meta property="og:updated_time" content="2016-10-09T13:43:29.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 xhprof 来分析 php 性能">
-<meta name="twitter:description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
+<meta name="twitter:title" content="go 学习笔记">
+<meta name="twitter:description" content="变量array
+值类型，赋值和传参都会复制数组，而不是指针
 
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
+slice
+通过内部指针和相关属性引用数组片段，以实现变长方案
+引用类型，但自身是结构体，值拷贝传递
 
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
+1234567891011121314struct Slice &amp;#123;    byte* array    // 若 slice == nil，那么 len、cap 结果都等于 0    uintgo len  // 表示可用元">
 
 
 
@@ -153,9 +135,9 @@ xhprof_sample_ena">
 
 
 
-  <link rel="canonical" href="http://menory.com/2016/09/02/xhprof/"/>
+  <link rel="canonical" href="http://menory.com/2016/10/05/go-01/"/>
 
-  <title> 使用 xhprof 来分析 php 性能 | menory </title>
+  <title> go 学习笔记 | menory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +267,7 @@ xhprof_sample_ena">
             
             
               
-                使用 xhprof 来分析 php 性能
+                go 学习笔记
               
             
           </h1>
@@ -297,8 +279,8 @@ xhprof_sample_ena">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
-              2016-09-02
+            <time itemprop="dateCreated" datetime="2016-10-05T23:51:20+08:00" content="2016-10-05">
+              2016-10-05
             </time>
           </span>
 
@@ -311,8 +293,8 @@ xhprof_sample_ena">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
+                  <a href="/categories/go/" itemprop="url" rel="index">
+                    <span itemprop="name">go</span>
                   </a>
                 </span>
 
@@ -344,22 +326,26 @@ xhprof_sample_ena">
       
 
       
-        <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
-<li>extension=xhprof.so</li>
-<li>xhprof.output_dir=/tmp <em>储存 XHProf 运行数据的默认目录</em></li>
+        <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="array"><a href="#array" class="headerlink" title="array"></a>array</h4><ul>
+<li>值类型，赋值和传参都会复制数组，而不是指针</li>
 </ul>
-<h4 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h4><ul>
-<li><code>xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);</code><ul>
-<li>启动 xhprof 性能分析器</li>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><ul>
+<li>通过内部指针和相关属性引用数组片段，以实现变长方案</li>
+<li>引用类型，但自身是结构体，值拷贝传递</li>
 </ul>
-</li>
-<li><code>xhprof_disable();</code><ul>
-<li>停止 xhprof 性能采样分析器</li>
-</ul>
-</li>
-<li><code>xhprof_sample_enable 和 xhprof_sample_disable</code></li>
-</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">struct Slice &#123;</div><div class="line">    byte* array</div><div class="line"></div><div class="line">    // 若 slice == nil，那么 len、<span class="built_in">cap</span> 结果都等于 0</div><div class="line">    uintgo len  // 表示可用元素数量，读写操作不能超过该限制</div><div class="line">    uintgo <span class="built_in">cap</span>  // 表示最大扩张容量，不能超出数组限制</div><div class="line">&#125;</div><div class="line"></div><div class="line">// data：0 1 2 3 4</div><div class="line">data := [...]int&#123;0, 1, 2, 3, 4&#125;</div><div class="line"></div><div class="line">// data：2 3</div><div class="line">slice := data[2:4] // [low:high:max], len: high - low, <span class="built_in">cap</span>: max - low</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><h4 id="抛出错误"><a href="#抛出错误" class="headerlink" title="抛出错误"></a>抛出错误</h4><pre><code>  panic：抛出错误
+recover：捕获错误
 
+1.  延迟调用中引发的错误，可被后续延迟调用捕获，但仅最后一个错误可被捕获
+2.  捕获函数 recover 只有在延迟调用内直接调用才会终止错误，否则总是返回 nil
+3.  任何未捕获的错误都会沿调用堆栈向外传递
+</code></pre><h4 id="error-类型"><a href="#error-类型" class="headerlink" title="error 类型"></a>error 类型</h4><h3 id="make-与-new"><a href="#make-与-new" class="headerlink" title="make 与 new"></a>make 与 new</h3><h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><pre><code>new：用于各种类型的内存分配
+new(T) 分配了零值填充的 T 类型的内存空间，并且返回其地址 *T
+</code></pre><h4 id="make"><a href="#make" class="headerlink" title="make"></a>make</h4><pre><code>make：用于内建类型（map、slice 和 channel）的内存分配
+make(T, len, cap)
+</code></pre>
       
     </div>
 
@@ -384,17 +370,13 @@ xhprof_sample_ena">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/02/yaml/" rel="next" title="yaml 语法">
-                <i class="fa fa-chevron-left"></i> yaml 语法
+              <a href="/2016/10/05/note-01/" rel="next" title="读书笔记_Linux程序设计_泛读">
+                <i class="fa fa-chevron-left"></i> 读书笔记_Linux程序设计_泛读
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/05/note-01/" rel="prev" title="读书笔记_Linux程序设计_泛读">
-                读书笔记_Linux程序设计_泛读 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +483,7 @@ xhprof_sample_ena">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内置函数"><span class="nav-number">2.</span> <span class="nav-text">内置函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#array"><span class="nav-number">1.1.</span> <span class="nav-text">array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slice"><span class="nav-number">1.2.</span> <span class="nav-text">slice</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">2.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抛出错误"><span class="nav-number">2.1.</span> <span class="nav-text">抛出错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error-类型"><span class="nav-number">2.2.</span> <span class="nav-text">error 类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make-与-new"><span class="nav-number">3.</span> <span class="nav-text">make 与 new</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#new"><span class="nav-number">3.1.</span> <span class="nav-text">new</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make"><span class="nav-number">3.2.</span> <span class="nav-text">make</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
