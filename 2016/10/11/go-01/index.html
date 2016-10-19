@@ -84,37 +84,16 @@
 
 
 
-<meta name="description" content="变量array
-值类型，赋值和传参都会复制数组，而不是指针
-
-slice
-通过内部指针和相关属性引用数组片段，以实现变长方案
-引用类型，但自身是结构体，值拷贝传递
-
-1234567891011121314struct Slice &amp;#123;    byte* array    // 若 slice == nil，那么 len、cap 结果都等于 0    uintgo len  // 表示可用元">
+<meta name="description" content="go 静态类型语言，不能在运行期改变变量类型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go 学习笔记">
-<meta property="og:url" content="http://menory.com/2016/10/05/go-01/index.html">
+<meta property="og:url" content="http://menory.com/2016/10/11/go-01/index.html">
 <meta property="og:site_name" content="menory">
-<meta property="og:description" content="变量array
-值类型，赋值和传参都会复制数组，而不是指针
-
-slice
-通过内部指针和相关属性引用数组片段，以实现变长方案
-引用类型，但自身是结构体，值拷贝传递
-
-1234567891011121314struct Slice &amp;#123;    byte* array    // 若 slice == nil，那么 len、cap 结果都等于 0    uintgo len  // 表示可用元">
-<meta property="og:updated_time" content="2016-10-09T13:43:29.444Z">
+<meta property="og:description" content="go 静态类型语言，不能在运行期改变变量类型">
+<meta property="og:updated_time" content="2016-10-12T05:13:32.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="go 学习笔记">
-<meta name="twitter:description" content="变量array
-值类型，赋值和传参都会复制数组，而不是指针
-
-slice
-通过内部指针和相关属性引用数组片段，以实现变长方案
-引用类型，但自身是结构体，值拷贝传递
-
-1234567891011121314struct Slice &amp;#123;    byte* array    // 若 slice == nil，那么 len、cap 结果都等于 0    uintgo len  // 表示可用元">
+<meta name="twitter:description" content="go 静态类型语言，不能在运行期改变变量类型">
 
 
 
@@ -135,7 +114,7 @@ slice
 
 
 
-  <link rel="canonical" href="http://menory.com/2016/10/05/go-01/"/>
+  <link rel="canonical" href="http://menory.com/2016/10/11/go-01/"/>
 
   <title> go 学习笔记 | menory </title>
 </head>
@@ -279,8 +258,8 @@ slice
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T23:51:20+08:00" content="2016-10-05">
-              2016-10-05
+            <time itemprop="dateCreated" datetime="2016-10-11T12:56:06+08:00" content="2016-10-11">
+              2016-10-11
             </time>
           </span>
 
@@ -326,15 +305,25 @@ slice
       
 
       
-        <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="array"><a href="#array" class="headerlink" title="array"></a>array</h4><ul>
+        <blockquote>
+<p>go 静态类型语言，不能在运行期改变变量类型</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><pre><code>// 定义变量和初始化，若提供初始化值编译器可自动推导类型
+var 变量名 变量类型 [, 变量名 变量类型]
+var 变量名 变量类型 = 变量值
+变量名 := 变量值
+</code></pre><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><blockquote>
+<p>常量值必须是编译期可确定的数字、字符串、布尔值</p>
+</blockquote>
+<h4 id="array"><a href="#array" class="headerlink" title="array"></a>array</h4><ul>
 <li>值类型，赋值和传参都会复制数组，而不是指针</li>
 </ul>
-<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><ul>
-<li>通过内部指针和相关属性引用数组片段，以实现变长方案</li>
-<li>引用类型，但自身是结构体，值拷贝传递</li>
-</ul>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><blockquote>
+<p>通过内部指针和相关属性引用数组片段，以实现变长方案</p>
+<p>引用类型，但自身是结构体，值拷贝传递</p>
+</blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">struct Slice &#123;</div><div class="line">    byte* array</div><div class="line"></div><div class="line">    // 若 slice == nil，那么 len、<span class="built_in">cap</span> 结果都等于 0</div><div class="line">    uintgo len  // 表示可用元素数量，读写操作不能超过该限制</div><div class="line">    uintgo <span class="built_in">cap</span>  // 表示最大扩张容量，不能超出数组限制</div><div class="line">&#125;</div><div class="line"></div><div class="line">// data：0 1 2 3 4</div><div class="line">data := [...]int&#123;0, 1, 2, 3, 4&#125;</div><div class="line"></div><div class="line">// data：2 3</div><div class="line">slice := data[2:4] // [low:high:max], len: high - low, <span class="built_in">cap</span>: max - low</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><h4 id="抛出错误"><a href="#抛出错误" class="headerlink" title="抛出错误"></a>抛出错误</h4><pre><code>  panic：抛出错误
 recover：捕获错误
 
@@ -377,6 +366,10 @@ make(T, len, cap)
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/19/process/" rel="prev" title="进程与信号">
+                进程与信号 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -444,7 +437,7 @@ make(T, len, cap)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -452,7 +445,7 @@ make(T, len, cap)
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -483,7 +476,7 @@ make(T, len, cap)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#array"><span class="nav-number">1.1.</span> <span class="nav-text">array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slice"><span class="nav-number">1.2.</span> <span class="nav-text">slice</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">2.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抛出错误"><span class="nav-number">2.1.</span> <span class="nav-text">抛出错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error-类型"><span class="nav-number">2.2.</span> <span class="nav-text">error 类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make-与-new"><span class="nav-number">3.</span> <span class="nav-text">make 与 new</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#new"><span class="nav-number">3.1.</span> <span class="nav-text">new</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make"><span class="nav-number">3.2.</span> <span class="nav-text">make</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常量"><span class="nav-number">1.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#array"><span class="nav-number">1.2.</span> <span class="nav-text">array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slice"><span class="nav-number">1.3.</span> <span class="nav-text">slice</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">2.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抛出错误"><span class="nav-number">2.1.</span> <span class="nav-text">抛出错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error-类型"><span class="nav-number">2.2.</span> <span class="nav-text">error 类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make-与-new"><span class="nav-number">3.</span> <span class="nav-text">make 与 new</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#new"><span class="nav-number">3.1.</span> <span class="nav-text">new</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make"><span class="nav-number">3.2.</span> <span class="nav-text">make</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

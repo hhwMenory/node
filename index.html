@@ -248,7 +248,156 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/05/go-01/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/19/process/" itemprop="url">
+                  进程与信号
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-19T23:37:22+08:00" content="2016-10-19">
+              2016-10-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="swoole-process"><a href="#swoole-process" class="headerlink" title="swoole_process"></a>swoole_process</h3><h4 id="创建子进程"><a href="#创建子进程" class="headerlink" title="创建子进程"></a>创建子进程</h4><pre><code>int swoole_process::__construct(
+    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true
+)
+
+$function：子进程创建成功后要执行的函数
+$redirectStdinStdout：是否重定向子进程的标准输入从管道读取和输出到管道
+$createPipe：是否创建管道，启用 $redirect_stdin_stdout 后强制为 true
+
+$process-&gt;pid：子进程的 PID
+$process-&gt;pipe：管道的文件描述符
+</code></pre><h4 id="启动进程"><a href="#启动进程" class="headerlink" title="启动进程"></a>启动进程</h4><pre><code>// 执行fork系统调用启动进程，成功返回子进程的 PID，创建失败返回 false
+[int | false] swoole_process-&gt;start()
+
+if (swoole_process-&gt;start() === false) {
+    // 使用 swoole_errno 和 swoole_strerror 得到错误码和错误信息
+}
+
+// 修改进程名称
+bool swoole_process::name(string $newProcessName)
+eg：$process-&gt;name(&quot;php server.php: worker&quot;)
+</code></pre><h4 id="守护进程化"><a href="#守护进程化" class="headerlink" title="守护进程化"></a>守护进程化</h4><pre><code>// 使当前进程脱变为一个守护进程
+bool swoole_process::daemon(bool $nochdir = false, bool $noclose = false)
+
+$nochdir：true 表示不修改当前目录。false 表示将当前目录切换到 “/”
+$noclose：表示是否将标准输入和输出重定向到 /dev/null
+</code></pre><h4 id="管道通信"><a href="#管道通信" class="headerlink" title="管道通信"></a>管道通信</h4><pre><code>// 向管道内写入数据
+int swoole_process-&gt;write(string $data)
+
+    1. $data 的长度在 Linux 系统下最大不超过 8K，MacOS/FreeBSD 下最大不超过 2K
+    2. 在子进程内调用write，主进程会收到数据
+    3. 在主进程内调用write，子进程会收到数据
+
+// 从管道中读取数据
+int swoole_process-&gt;read(int $bufferSize = 8192)
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/19/process/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/11/go-01/" itemprop="url">
                   go 学习笔记
                 </a>
               
@@ -262,8 +411,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T23:51:20+08:00" content="2016-10-05">
-              2016-10-05
+            <time itemprop="dateCreated" datetime="2016-10-11T12:56:06+08:00" content="2016-10-11">
+              2016-10-11
             </time>
           </span>
 
@@ -310,16 +459,11 @@
 
       
         
-          <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="array"><a href="#array" class="headerlink" title="array"></a>array</h4><ul>
-<li>值类型，赋值和传参都会复制数组，而不是指针</li>
-</ul>
-<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><ul>
-<li>通过内部指针和相关属性引用数组片段，以实现变长方案</li>
-<li>引用类型，但自身是结构体，值拷贝传递</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">struct Slice &#123;</div><div class="line">    byte* array</div><div class="line"></div><div class="line">    // 若 slice == nil，那么 len、<span class="built_in">cap</span> 结果都等于 0</div><div class="line">    uintgo len  // 表示可用元素数量，读写操作不能超过该限制</div><div class="line">    uintgo <span class="built_in">cap</span>  // 表示最大扩张容量，不能超出数组限制</div><div class="line">&#125;</div><div class="line"></div><div class="line">// data：0 1 2 3 4</div><div class="line">data := [...]int&#123;0, 1, 2, 3, 4&#125;</div><div class="line"></div><div class="line">// data：2 3</div><div class="line">slice := data[2:4] // [low:high:max], len: high - low, <span class="built_in">cap</span>: max - low</div></pre></td></tr></table></figure>
+          <blockquote>
+<p>go 静态类型语言，不能在运行期改变变量类型</p>
+</blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/05/go-01/#more" rel="contents">
+            <a class="btn" href="/2016/10/11/go-01/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1439,7 +1583,7 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1447,7 +1591,7 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
