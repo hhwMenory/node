@@ -84,31 +84,16 @@
 
 
 
-<meta name="description" content="swoole_process创建子进程int swoole_process::__construct(
-    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true
-)
-
-$function：子进程创建成功后要执行的函数
-$redirectStdinStdout：是否重定向子进程的标准输入从管道读取和">
+<meta name="description" content="swoole_process创建子进程1234567891011int swoole_process::__construct(    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true)$function：子进程创建成功后要执行的函数$redirectStdinStdout：是否重定向子进程的标准">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程与信号">
 <meta property="og:url" content="http://menory.com/2016/10/19/process/index.html">
 <meta property="og:site_name" content="menory">
-<meta property="og:description" content="swoole_process创建子进程int swoole_process::__construct(
-    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true
-)
-
-$function：子进程创建成功后要执行的函数
-$redirectStdinStdout：是否重定向子进程的标准输入从管道读取和">
-<meta property="og:updated_time" content="2016-10-19T17:25:45.938Z">
+<meta property="og:description" content="swoole_process创建子进程1234567891011int swoole_process::__construct(    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true)$function：子进程创建成功后要执行的函数$redirectStdinStdout：是否重定向子进程的标准">
+<meta property="og:updated_time" content="2016-10-20T19:35:44.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程与信号">
-<meta name="twitter:description" content="swoole_process创建子进程int swoole_process::__construct(
-    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true
-)
-
-$function：子进程创建成功后要执行的函数
-$redirectStdinStdout：是否重定向子进程的标准输入从管道读取和">
+<meta name="twitter:description" content="swoole_process创建子进程1234567891011int swoole_process::__construct(    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true)$function：子进程创建成功后要执行的函数$redirectStdinStdout：是否重定向子进程的标准">
 
 
 
@@ -320,41 +305,11 @@ $redirectStdinStdout：是否重定向子进程的标准输入从管道读取和
       
 
       
-        <h3 id="swoole-process"><a href="#swoole-process" class="headerlink" title="swoole_process"></a>swoole_process</h3><h4 id="创建子进程"><a href="#创建子进程" class="headerlink" title="创建子进程"></a>创建子进程</h4><pre><code>int swoole_process::__construct(
-    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true
-)
-
-$function：子进程创建成功后要执行的函数
-$redirectStdinStdout：是否重定向子进程的标准输入从管道读取和输出到管道
-$createPipe：是否创建管道，启用 $redirect_stdin_stdout 后强制为 true
-
-$process-&gt;pid：子进程的 PID
-$process-&gt;pipe：管道的文件描述符
-</code></pre><h4 id="启动进程"><a href="#启动进程" class="headerlink" title="启动进程"></a>启动进程</h4><pre><code>// 执行fork系统调用启动进程，成功返回子进程的 PID，创建失败返回 false
-[int | false] swoole_process-&gt;start()
-
-if (swoole_process-&gt;start() === false) {
-    // 使用 swoole_errno 和 swoole_strerror 得到错误码和错误信息
-}
-
-// 修改进程名称
-bool swoole_process::name(string $newProcessName)
-eg：$process-&gt;name(&quot;php server.php: worker&quot;)
-</code></pre><h4 id="守护进程化"><a href="#守护进程化" class="headerlink" title="守护进程化"></a>守护进程化</h4><pre><code>// 使当前进程脱变为一个守护进程
-bool swoole_process::daemon(bool $nochdir = false, bool $noclose = false)
-
-$nochdir：true 表示不修改当前目录。false 表示将当前目录切换到 “/”
-$noclose：表示是否将标准输入和输出重定向到 /dev/null
-</code></pre><h4 id="管道通信"><a href="#管道通信" class="headerlink" title="管道通信"></a>管道通信</h4><pre><code>// 向管道内写入数据
-int swoole_process-&gt;write(string $data)
-
-    1. $data 的长度在 Linux 系统下最大不超过 8K，MacOS/FreeBSD 下最大不超过 2K
-    2. 在子进程内调用write，主进程会收到数据
-    3. 在主进程内调用write，子进程会收到数据
-
-// 从管道中读取数据
-int swoole_process-&gt;read(int $bufferSize = 8192)
-</code></pre><a id="more"></a>
+        <h3 id="swoole-process"><a href="#swoole-process" class="headerlink" title="swoole_process"></a>swoole_process</h3><h4 id="创建子进程"><a href="#创建子进程" class="headerlink" title="创建子进程"></a>创建子进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int swoole_process::__construct(</div><div class="line">    mixed <span class="variable">$function</span>, bool <span class="variable">$redirectStdinStdout</span> = <span class="literal">false</span>, bool <span class="variable">$createPipe</span> = <span class="literal">true</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="variable">$function</span>：子进程创建成功后要执行的函数</div><div class="line"><span class="variable">$redirectStdinStdout</span>：是否重定向子进程的标准输入从管道读取和输出到管道</div><div class="line"><span class="variable">$createPipe</span>：是否创建管道，启用 <span class="variable">$redirect_stdin_stdout</span> 后强制为 <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="variable">$process</span>-&gt;pid：子进程的 PID</div><div class="line"><span class="variable">$process</span>-&gt;pipe：管道的文件描述符</div></pre></td></tr></table></figure>
+<h4 id="启动进程"><a href="#启动进程" class="headerlink" title="启动进程"></a>启动进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 执行fork系统调用启动进程，成功返回子进程的 PID，创建失败返回 <span class="literal">false</span></div><div class="line">[int | <span class="literal">false</span>] swoole_process-&gt;start()</div><div class="line"></div><div class="line"><span class="keyword">if</span> (swoole_process-&gt;start() === <span class="literal">false</span>) &#123;</div><div class="line">    // 使用 swoole_errno 和 swoole_strerror 得到错误码和错误信息</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 修改进程名称</div><div class="line">bool swoole_process::name(string <span class="variable">$newProcessName</span>)</div><div class="line">eg：<span class="variable">$process</span>-&gt;name(<span class="string">"php server.php: worker"</span>)</div></pre></td></tr></table></figure>
+<h4 id="守护进程化"><a href="#守护进程化" class="headerlink" title="守护进程化"></a>守护进程化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 使当前进程脱变为一个守护进程</div><div class="line">bool swoole_process::daemon(bool <span class="variable">$nochdir</span> = <span class="literal">false</span>, bool <span class="variable">$noclose</span> = <span class="literal">false</span>)</div><div class="line"></div><div class="line"><span class="variable">$nochdir</span>：<span class="literal">true</span> 表示不修改当前目录。<span class="literal">false</span> 表示将当前目录切换到 “/”</div><div class="line"><span class="variable">$noclose</span>：表示是否将标准输入和输出重定向到 /dev/null</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="管道通信"><a href="#管道通信" class="headerlink" title="管道通信"></a>管道通信</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 向管道内写入数据</div><div class="line">int swoole_process-&gt;write(string <span class="variable">$data</span>)</div><div class="line"></div><div class="line">    1. <span class="variable">$data</span> 的长度在 Linux 系统下最大不超过 8K，MacOS/FreeBSD 下最大不超过 2K</div><div class="line">    2. 在子进程内调用write，主进程会收到数据</div><div class="line">    3. 在主进程内调用write，子进程会收到数据</div><div class="line"></div><div class="line">// 从管道中读取数据</div><div class="line">int swoole_process-&gt;<span class="built_in">read</span>(int <span class="variable">$bufferSize</span> = 8192)</div><div class="line"></div><div class="line">    1. <span class="variable">$bufferSize</span> 是缓冲区的大小，默认为8192，最大不超过64K</div><div class="line">    2. 默认 <span class="built_in">read</span> 操作为流式的，write/<span class="built_in">read</span> 的大小并不一致</div><div class="line"></div><div class="line">// 默认处理方式为同步阻塞</div><div class="line"></div><div class="line">dump(<span class="string">'parent process start'</span>);</div><div class="line"></div><div class="line"><span class="variable">$process</span> = new \swoole_process(<span class="string">'test'</span>);</div><div class="line"><span class="variable">$process</span>-&gt;start();</div><div class="line"></div><div class="line">dump(<span class="variable">$process</span>-&gt;<span class="built_in">read</span>()); // 父进程同步阻塞读取管道</div><div class="line"></div><div class="line">dump(<span class="string">'parent process end'</span>);</div><div class="line"></div><div class="line">// 执行结果</div><div class="line">// php process.php </div><div class="line">// string(48) <span class="string">"[log] 2016-10-20 18:00:04 : parent process start"</span></div><div class="line">// string(47) <span class="string">"[log] 2016-10-20 18:00:04 : child process start"</span></div><div class="line">// string(45) <span class="string">"[log] 2016-10-20 18:00:07 : child process end"</span></div><div class="line">// string(38) <span class="string">"[log] 2016-10-20 18:00:07 : test write"</span></div><div class="line">// string(46) <span class="string">"[log] 2016-10-20 18:00:07 : parent process end"</span></div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="built_in">test</span>(<span class="variable">$process</span>)</div><div class="line">&#123;</div><div class="line">    dump(<span class="string">'child process start'</span>);</div><div class="line">    sleep(3);</div><div class="line">    <span class="variable">$process</span>-&gt;write(<span class="string">'test write'</span>); // 子进程睡眠3秒后向管道写入数据</div><div class="line">    dump(<span class="string">'child process end'</span>);</div><div class="line">    <span class="variable">$process</span>-&gt;<span class="built_in">exit</span>(0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> dump(<span class="variable">$msg</span>)</div><div class="line">&#123;</div><div class="line">    var_dump(<span class="string">'[log] '</span>.date(<span class="string">'Y-m-d H:i:s'</span>).<span class="string">' : '</span>.<span class="variable">$msg</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 可以使用 swoole 的 EventLoop [事件轮询] 模块实现异步处理模式</div><div class="line"></div><div class="line">dump(<span class="string">'parent process start'</span>);</div><div class="line"></div><div class="line"><span class="variable">$process</span> = new \swoole_process(<span class="string">'test'</span>);</div><div class="line"><span class="variable">$process</span>-&gt;start();</div><div class="line"></div><div class="line">\swoole_event_add(<span class="variable">$process</span>-&gt;pipe, <span class="keyword">function</span> (<span class="variable">$pipe</span>) use(<span class="variable">$process</span>) &#123;</div><div class="line">    dump(<span class="variable">$process</span>-&gt;<span class="built_in">read</span>());</div><div class="line">    swoole_event_del(<span class="variable">$pipe</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">dump(<span class="string">'parent process end'</span>);</div><div class="line"></div><div class="line">// php process.php </div><div class="line">// string(48) <span class="string">"[log] 2016-10-20 18:50:06 : parent process start"</span></div><div class="line">// string(46) <span class="string">"[log] 2016-10-20 18:50:06 : parent process end"</span></div><div class="line">// string(47) <span class="string">"[log] 2016-10-20 18:50:06 : child process start"</span></div><div class="line">// string(45) <span class="string">"[log] 2016-10-20 18:50:09 : child process end"</span></div><div class="line">// string(38) <span class="string">"[log] 2016-10-20 18:50:09 : test write"</span></div></pre></td></tr></table></figure>
 
       
     </div>

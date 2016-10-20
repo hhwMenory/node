@@ -310,41 +310,9 @@
 
       
         
-          <h3 id="swoole-process"><a href="#swoole-process" class="headerlink" title="swoole_process"></a>swoole_process</h3><h4 id="创建子进程"><a href="#创建子进程" class="headerlink" title="创建子进程"></a>创建子进程</h4><pre><code>int swoole_process::__construct(
-    mixed $function, bool $redirectStdinStdout = false, bool $createPipe = true
-)
-
-$function：子进程创建成功后要执行的函数
-$redirectStdinStdout：是否重定向子进程的标准输入从管道读取和输出到管道
-$createPipe：是否创建管道，启用 $redirect_stdin_stdout 后强制为 true
-
-$process-&gt;pid：子进程的 PID
-$process-&gt;pipe：管道的文件描述符
-</code></pre><h4 id="启动进程"><a href="#启动进程" class="headerlink" title="启动进程"></a>启动进程</h4><pre><code>// 执行fork系统调用启动进程，成功返回子进程的 PID，创建失败返回 false
-[int | false] swoole_process-&gt;start()
-
-if (swoole_process-&gt;start() === false) {
-    // 使用 swoole_errno 和 swoole_strerror 得到错误码和错误信息
-}
-
-// 修改进程名称
-bool swoole_process::name(string $newProcessName)
-eg：$process-&gt;name(&quot;php server.php: worker&quot;)
-</code></pre><h4 id="守护进程化"><a href="#守护进程化" class="headerlink" title="守护进程化"></a>守护进程化</h4><pre><code>// 使当前进程脱变为一个守护进程
-bool swoole_process::daemon(bool $nochdir = false, bool $noclose = false)
-
-$nochdir：true 表示不修改当前目录。false 表示将当前目录切换到 “/”
-$noclose：表示是否将标准输入和输出重定向到 /dev/null
-</code></pre><h4 id="管道通信"><a href="#管道通信" class="headerlink" title="管道通信"></a>管道通信</h4><pre><code>// 向管道内写入数据
-int swoole_process-&gt;write(string $data)
-
-    1. $data 的长度在 Linux 系统下最大不超过 8K，MacOS/FreeBSD 下最大不超过 2K
-    2. 在子进程内调用write，主进程会收到数据
-    3. 在主进程内调用write，子进程会收到数据
-
-// 从管道中读取数据
-int swoole_process-&gt;read(int $bufferSize = 8192)
-</code></pre>
+          <h3 id="swoole-process"><a href="#swoole-process" class="headerlink" title="swoole_process"></a>swoole_process</h3><h4 id="创建子进程"><a href="#创建子进程" class="headerlink" title="创建子进程"></a>创建子进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int swoole_process::__construct(</div><div class="line">    mixed <span class="variable">$function</span>, bool <span class="variable">$redirectStdinStdout</span> = <span class="literal">false</span>, bool <span class="variable">$createPipe</span> = <span class="literal">true</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="variable">$function</span>：子进程创建成功后要执行的函数</div><div class="line"><span class="variable">$redirectStdinStdout</span>：是否重定向子进程的标准输入从管道读取和输出到管道</div><div class="line"><span class="variable">$createPipe</span>：是否创建管道，启用 <span class="variable">$redirect_stdin_stdout</span> 后强制为 <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="variable">$process</span>-&gt;pid：子进程的 PID</div><div class="line"><span class="variable">$process</span>-&gt;pipe：管道的文件描述符</div></pre></td></tr></table></figure>
+<h4 id="启动进程"><a href="#启动进程" class="headerlink" title="启动进程"></a>启动进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 执行fork系统调用启动进程，成功返回子进程的 PID，创建失败返回 <span class="literal">false</span></div><div class="line">[int | <span class="literal">false</span>] swoole_process-&gt;start()</div><div class="line"></div><div class="line"><span class="keyword">if</span> (swoole_process-&gt;start() === <span class="literal">false</span>) &#123;</div><div class="line">    // 使用 swoole_errno 和 swoole_strerror 得到错误码和错误信息</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 修改进程名称</div><div class="line">bool swoole_process::name(string <span class="variable">$newProcessName</span>)</div><div class="line">eg：<span class="variable">$process</span>-&gt;name(<span class="string">"php server.php: worker"</span>)</div></pre></td></tr></table></figure>
+<h4 id="守护进程化"><a href="#守护进程化" class="headerlink" title="守护进程化"></a>守护进程化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 使当前进程脱变为一个守护进程</div><div class="line">bool swoole_process::daemon(bool <span class="variable">$nochdir</span> = <span class="literal">false</span>, bool <span class="variable">$noclose</span> = <span class="literal">false</span>)</div><div class="line"></div><div class="line"><span class="variable">$nochdir</span>：<span class="literal">true</span> 表示不修改当前目录。<span class="literal">false</span> 表示将当前目录切换到 “/”</div><div class="line"><span class="variable">$noclose</span>：表示是否将标准输入和输出重定向到 /dev/null</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/19/process/#more" rel="contents">
               阅读全文 &raquo;
