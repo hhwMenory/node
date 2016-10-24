@@ -84,55 +84,16 @@
 
 
 
-<meta name="description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
-
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
-
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
+<meta name="description" content="1234567891011// 创建delimiter $$ // 修改分割符create procedure 过程名(过程参数...)begin    // 过程体end$$delimiter ;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 xhprof 来分析 php 性能">
-<meta property="og:url" content="http://menory.com/2016/09/02/xhprof/index.html">
+<meta property="og:title" content="mysql 存储过程">
+<meta property="og:url" content="http://menory.com/2016/10/10/mysql-procedure/index.html">
 <meta property="og:site_name" content="menory">
-<meta property="og:description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
-
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
-
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
-<meta property="og:updated_time" content="2016-07-21T17:54:31.603Z">
+<meta property="og:description" content="1234567891011// 创建delimiter $$ // 修改分割符create procedure 过程名(过程参数...)begin    // 过程体end$$delimiter ;">
+<meta property="og:updated_time" content="2016-10-24T08:29:56.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 xhprof 来分析 php 性能">
-<meta name="twitter:description" content="配置
-extension=xhprof.so
-xhprof.output_dir=/tmp 储存 XHProf 运行数据的默认目录
-
-内置函数
-xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-启动 xhprof 性能分析器
-
-
-xhprof_disable();
-停止 xhprof 性能采样分析器
-
-
-xhprof_sample_ena">
+<meta name="twitter:title" content="mysql 存储过程">
+<meta name="twitter:description" content="1234567891011// 创建delimiter $$ // 修改分割符create procedure 过程名(过程参数...)begin    // 过程体end$$delimiter ;">
 
 
 
@@ -153,9 +114,9 @@ xhprof_sample_ena">
 
 
 
-  <link rel="canonical" href="http://menory.com/2016/09/02/xhprof/"/>
+  <link rel="canonical" href="http://menory.com/2016/10/10/mysql-procedure/"/>
 
-  <title> 使用 xhprof 来分析 php 性能 | menory </title>
+  <title> mysql 存储过程 | menory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +246,7 @@ xhprof_sample_ena">
             
             
               
-                使用 xhprof 来分析 php 性能
+                mysql 存储过程
               
             
           </h1>
@@ -297,8 +258,8 @@ xhprof_sample_ena">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
-              2016-09-02
+            <time itemprop="dateCreated" datetime="2016-10-10T02:14:22+08:00" content="2016-10-10">
+              2016-10-10
             </time>
           </span>
 
@@ -311,8 +272,8 @@ xhprof_sample_ena">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
                   </a>
                 </span>
 
@@ -344,21 +305,8 @@ xhprof_sample_ena">
       
 
       
-        <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
-<li>extension=xhprof.so</li>
-<li>xhprof.output_dir=/tmp <em>储存 XHProf 运行数据的默认目录</em></li>
-</ul>
-<h4 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h4><ul>
-<li><code>xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);</code><ul>
-<li>启动 xhprof 性能分析器</li>
-</ul>
-</li>
-<li><code>xhprof_disable();</code><ul>
-<li>停止 xhprof 性能采样分析器</li>
-</ul>
-</li>
-<li><code>xhprof_sample_enable 和 xhprof_sample_disable</code></li>
-</ul>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 创建</div><div class="line">delimiter $$ // 修改分割符</div><div class="line"></div><div class="line">create procedure 过程名(过程参数...)</div><div class="line">begin</div><div class="line">    // 过程体</div><div class="line">end</div><div class="line">$$</div><div class="line"></div><div class="line">delimiter ;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 
       
     </div>
@@ -384,16 +332,16 @@ xhprof_sample_ena">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/02/yaml/" rel="next" title="yaml 语法">
-                <i class="fa fa-chevron-left"></i> yaml 语法
+              <a href="/2016/10/05/note-01/" rel="next" title="读书笔记_Linux程序设计_泛读">
+                <i class="fa fa-chevron-left"></i> 读书笔记_Linux程序设计_泛读
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/05/note-01/" rel="prev" title="读书笔记_Linux程序设计_泛读">
-                读书笔记_Linux程序设计_泛读 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/11/go-01/" rel="prev" title="go 学习笔记">
+                go 学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,7 +449,7 @@ xhprof_sample_ena">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内置函数"><span class="nav-number">2.</span> <span class="nav-text">内置函数</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
