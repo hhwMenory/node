@@ -248,6 +248,119 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/23/linux-firewall/" itemprop="url">
+                  防火墙
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-23T22:18:40+08:00" content="2017-02-23">
+              2017-02-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NetFilter 网络过滤器</div><div class="line"></div><div class="line">    PREROUTING      路由前</div><div class="line">    INPUT           数据包流入口</div><div class="line">    FORWARD         转发管卡</div><div class="line">    OUTPUT          数据包出口</div><div class="line">    POSTROUTING     路由后</div><div class="line"></div><div class="line"><span class="comment"># 规则的定义方式 iptables [-t table] COMMAND chain CRETIRIA -j ACTION</span></div><div class="line">    </div><div class="line">    <span class="comment">## -t table [filter|nat|mangle]</span></div><div class="line">    <span class="comment">## COMMAND：     定义如何对规则进行管理</span></div><div class="line">    <span class="comment">## chain：       指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的</span></div><div class="line">    <span class="comment">## CRETIRIA：    指定匹配标准</span></div><div class="line">    <span class="comment">## -j ACTION：   指定如何进行处理</span></div><div class="line">    </div><div class="line">        <span class="comment">### ACTION</span></div><div class="line">            </div><div class="line">            DROP        悄悄丢弃</div><div class="line">            REJECT      明示拒绝</div><div class="line">            ACCEPT      接受</div><div class="line">            REDIRECT    重定向：主要用于实现端口重定向</div><div class="line">            </div><div class="line">    -P 设置默认策略</div><div class="line">    -F 清空规则链</div><div class="line">    </div><div class="line">    </div><div class="line">filter：定义允许或者不允许的   INPUT,FORWARD,OUTPUT</div><div class="line">nat：定义地址转换的            PREROUTING,OUTPUT,POSTROUTING </div><div class="line">mangle 功能：修改报文原数据    PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING</div></pre></td></tr></table></figure>
+<h3 id="firewall"><a href="#firewall" class="headerlink" title="firewall"></a>firewall</h3>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/17/binary/" itemprop="url">
                   二进制
                 </a>
@@ -1489,145 +1602,13 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/02/frame/" itemprop="url">
-                  个人开发框架
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一个编程开发的新手，我很喜欢去尝试和学习一些新的技术和知识，来提升自己的个人能力，<br>个人也偏好学习一些底层相关的知识，虽然这几年来的学习让我有了很大的提升，但是自己感觉学<br>习的东西很多，也很杂。有些东西学习后，因为公司的开发条件限制只能是了解过，并没有真正的<br>去实践它，于是便有了自己编写个人开发框架的想法，编写框架可以很好的去实践自己的一些想法<br>，也能去思考一些架构的问题，更可以糅合自己掌握的相关技能。</p>
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>menory-framework 的运行环境是基于 PHP7、Nginx 和 Swoole 扩展的，只要是使用 Swoole 做应<br>用服务，Nginx 做代理转发。menory-framework 简单可以划分为框架、服务和应用三个部分，服务<br>是基于 Swoole 扩展而给应用相关的网络服务，而应用可以有多种，例如以 MVC 模式为主的 Web<br>应用，最后的框架则是服务和应用的糅合剂，给他们提供一个可运行环境。</p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h4 id="框架目录"><a href="#框架目录" class="headerlink" title="框架目录"></a>框架目录</h4><blockquote>
-<p>/app        一些内置的框架管理应用目录<br>/bin        管理脚本目录<br>/etc        应用服务的配置文件目录<br>/factory    ###<br>/var        存放应用服务运行时要改变的数据 pid, log<br>/vendor     框架使用 composer 来管理依赖关系，效果同 composer 的设定</p>
-</blockquote>
-<p><strong>注意：</strong> </p>
-<ul>
-<li>框架的核心代码也以第三方扩展的方式存放在 /vendor/menory</li>
-<li>/var/pid/{appName} 存放应用服务运行时的进程 pid，如 master 和 manager 进程的pid</li>
-</ul>
-<h4 id="应用目录（MVC-模式）"><a href="#应用目录（MVC-模式）" class="headerlink" title="应用目录（MVC 模式）"></a>应用目录（MVC 模式）</h4><blockquote>
-<p>/Controller    控制器文件目录<br>/Configs       应用级配置文件目录<br>/Hooks         钩子文件目录<br>/View          视图文件目录<br>/Libs          应用库目录</p>
-</blockquote>
-<h3 id="框架使用"><a href="#框架使用" class="headerlink" title="框架使用"></a>框架使用</h3><p>框架的使用很简单，主要可以分为下面几个步骤：</p>
-<ul>
-<li>使用 composer 安装框架：composer create-project menory/menory-framework frame “1.0.0”</li>
-<li>运行配置文件创建脚本生成相关配置：php bin/createConf.php [应用名称]</li>
-<li>进行相关的 Nginx 配置</li>
-<li>运行应用启动脚本：php bin/app.php start [应用名称] –debug（调试模式） –daemon（后台运行）</li>
-</ul>
-<h3 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h3><p>以 Http 服务为例，在 swoole_http_server</p>
-<h3 id="管理脚本"><a href="#管理脚本" class="headerlink" title="管理脚本"></a>管理脚本</h3><h4 id="bin-app-php-应用管理脚本"><a href="#bin-app-php-应用管理脚本" class="headerlink" title="bin/app.php 应用管理脚本"></a>bin/app.php 应用管理脚本</h4><h4 id="bin-createConf-php-相关配置文件创建脚本"><a href="#bin-createConf-php-相关配置文件创建脚本" class="headerlink" title="bin/createConf.php 相关配置文件创建脚本"></a>bin/createConf.php 相关配置文件创建脚本</h4><h4 id="bin-inotify-sh-目录监听脚本"><a href="#bin-inotify-sh-目录监听脚本" class="headerlink" title="bin/inotify.sh 目录监听脚本"></a>bin/inotify.sh 目录监听脚本</h4><h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>定时器，周期性的执行某项任务。在实际的开发中，定时任务是非常常用的，它可以把一些复杂的<br>业务逻辑解耦，例如商品的开奖、分佣、审核等等，也可以用来实现倒计时开奖，消息通知失败的<br>重试机制等等。而框架中根据 swoole 的特点，也考虑到怕一些费时定时任务影响其他定时任务的<br>执行，所以采用了 swoole 的进程管理模块和毫秒定时器来实现，让每一个定时任务都是一个独立<br>的进程。</p>
-<p>是否进行下次定时任务</p>
-<p>是否在处理定时任务中</p>
-<h3 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1666,7 +1647,7 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

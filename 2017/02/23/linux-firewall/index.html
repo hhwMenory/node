@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
+<meta name="description" content="iptables12345678910111213141516171819202122232425262728293031NetFilter 网络过滤器    PREROUTING      路由前    INPUT           数据包流入口    FORWARD         转发管卡    OUTPUT          数据包出口    POSTROUTING     路由后# 规">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 学习笔记02 -- Linux 文件属性详细说明">
-<meta property="og:url" content="http://menory.com/2016/09/02/linux-02/index.html">
+<meta property="og:title" content="防火墙">
+<meta property="og:url" content="http://menory.com/2017/02/23/linux-firewall/index.html">
 <meta property="og:site_name" content="menory">
-<meta property="og:description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
-<meta property="og:updated_time" content="2016-08-10T18:54:40.820Z">
+<meta property="og:description" content="iptables12345678910111213141516171819202122232425262728293031NetFilter 网络过滤器    PREROUTING      路由前    INPUT           数据包流入口    FORWARD         转发管卡    OUTPUT          数据包出口    POSTROUTING     路由后# 规">
+<meta property="og:updated_time" content="2017-02-24T02:37:25.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 学习笔记02 -- Linux 文件属性详细说明">
-<meta name="twitter:description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
+<meta name="twitter:title" content="防火墙">
+<meta name="twitter:description" content="iptables12345678910111213141516171819202122232425262728293031NetFilter 网络过滤器    PREROUTING      路由前    INPUT           数据包流入口    FORWARD         转发管卡    OUTPUT          数据包出口    POSTROUTING     路由后# 规">
 
 
 
@@ -117,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://menory.com/2016/09/02/linux-02/"/>
+  <link rel="canonical" href="http://menory.com/2017/02/23/linux-firewall/"/>
 
-  <title> Linux 学习笔记02 -- Linux 文件属性详细说明 | menory </title>
+  <title> 防火墙 | menory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +246,7 @@
             
             
               
-                Linux 学习笔记02 -- Linux 文件属性详细说明
+                防火墙
               
             
           </h1>
@@ -261,8 +258,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
-              2016-09-02
+            <time itemprop="dateCreated" datetime="2017-02-23T22:18:40+08:00" content="2017-02-23">
+              2017-02-23
             </time>
           </span>
 
@@ -275,8 +272,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -308,22 +305,8 @@
       
 
       
-        <p>Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[root@VM_145_23_centos shell]<span class="comment"># ll -lih</span></div><div class="line">total 8.0K</div><div class="line">99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh</div><div class="line"></div><div class="line"><span class="comment"># 99463：inode</span></div><div class="line"><span class="comment"># -rw-r--r--：文件种类和权限</span></div><div class="line"><span class="comment"># 1：硬链接个数</span></div><div class="line"><span class="comment"># root：属主</span></div><div class="line"><span class="comment"># root：所归属的组</span></div><div class="line"><span class="comment"># 39：文件或目录的大小</span></div><div class="line"><span class="comment"># Aug  7 20:53：最后访问或修改时间</span></div><div class="line"><span class="comment"># shell-01.sh：文件名或目录名</span></div></pre></td></tr></table></figure>
-<h3 id="inode"><a href="#inode" class="headerlink" title="inode"></a>inode</h3><pre><code>inode，索引节点。每个存储设备或存储设备的分区（存储设备拉硬盘、U盘等）被格式化为文
-件系统后，应该有两部分：
-    1. inode：用来存储数据的信息，如文件的大小、属主、读写权限等
-    2. block：用来存储数据
-</code></pre><h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><ul>
-<li>用 ln 可以创建链接文件，语法：ln 源文件 目标文件</li>
-<li>在 Linux 文件系统中，inode 值相同的文件是硬链接文件<ul>
-<li>硬链接不能为目录创建</li>
-<li>当一个其中一个硬链接文件的内容，互为硬链接文件的内容也会变化，若是删除时，其他不影响</li>
-</ul>
-</li>
-<li>-s 选项可以创建软链接，链接文件不能独立存在</li>
-</ul>
-
+        <h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NetFilter 网络过滤器</div><div class="line"></div><div class="line">    PREROUTING      路由前</div><div class="line">    INPUT           数据包流入口</div><div class="line">    FORWARD         转发管卡</div><div class="line">    OUTPUT          数据包出口</div><div class="line">    POSTROUTING     路由后</div><div class="line"></div><div class="line"><span class="comment"># 规则的定义方式 iptables [-t table] COMMAND chain CRETIRIA -j ACTION</span></div><div class="line">    </div><div class="line">    <span class="comment">## -t table [filter|nat|mangle]</span></div><div class="line">    <span class="comment">## COMMAND：     定义如何对规则进行管理</span></div><div class="line">    <span class="comment">## chain：       指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的</span></div><div class="line">    <span class="comment">## CRETIRIA：    指定匹配标准</span></div><div class="line">    <span class="comment">## -j ACTION：   指定如何进行处理</span></div><div class="line">    </div><div class="line">        <span class="comment">### ACTION</span></div><div class="line">            </div><div class="line">            DROP        悄悄丢弃</div><div class="line">            REJECT      明示拒绝</div><div class="line">            ACCEPT      接受</div><div class="line">            REDIRECT    重定向：主要用于实现端口重定向</div><div class="line">            </div><div class="line">    -P 设置默认策略</div><div class="line">    -F 清空规则链</div><div class="line">    </div><div class="line">    </div><div class="line">filter：定义允许或者不允许的   INPUT,FORWARD,OUTPUT</div><div class="line">nat：定义地址转换的            PREROUTING,OUTPUT,POSTROUTING </div><div class="line">mangle 功能：修改报文原数据    PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING</div></pre></td></tr></table></figure>
+<h3 id="firewall"><a href="#firewall" class="headerlink" title="firewall"></a>firewall</h3>
       
     </div>
 
@@ -348,17 +331,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/02/conf/" rel="next" title="Nginx 配置文件">
-                <i class="fa fa-chevron-left"></i> Nginx 配置文件
+              <a href="/2017/02/17/binary/" rel="next" title="二进制">
+                <i class="fa fa-chevron-left"></i> 二进制
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/02/yaml/" rel="prev" title="yaml 语法">
-                yaml 语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -465,7 +444,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#inode"><span class="nav-number">1.</span> <span class="nav-text">inode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接文件"><span class="nav-number">2.</span> <span class="nav-text">链接文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iptables"><span class="nav-number">1.</span> <span class="nav-text">iptables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#firewall"><span class="nav-number">2.</span> <span class="nav-text">firewall</span></a></li></ol></div>
             
           </div>
         </section>

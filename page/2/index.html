@@ -84,19 +84,15 @@
 
 
 
-<meta name="description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux 学习笔记02 -- Linux 文件属性详细说明">
-<meta property="og:url" content="http://menory.com/2016/09/02/linux-02/index.html">
+<meta name="description" content="个人分享, 个人总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="menory">
+<meta property="og:url" content="http://menory.com/page/2/index.html">
 <meta property="og:site_name" content="menory">
-<meta property="og:description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
-<meta property="og:updated_time" content="2016-08-10T18:54:40.820Z">
+<meta property="og:description" content="个人分享, 个人总结">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 学习笔记02 -- Linux 文件属性详细说明">
-<meta name="twitter:description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
+<meta name="twitter:title" content="menory">
+<meta name="twitter:description" content="个人分享, 个人总结">
 
 
 
@@ -117,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://menory.com/2016/09/02/linux-02/"/>
+  <link rel="canonical" href="http://menory.com/page/2/"/>
 
-  <title> Linux 学习笔记02 -- Linux 文件属性详细说明 | menory </title>
+  <title> menory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -140,7 +136,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +225,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -249,7 +247,10 @@
             
             
               
-                Linux 学习笔记02 -- Linux 文件属性详细说明
+                
+                <a class="post-title-link" href="/2016/09/02/frame/" itemprop="url">
+                  个人开发框架
+                </a>
               
             
           </h1>
@@ -275,8 +276,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
                   </a>
                 </span>
 
@@ -308,36 +309,43 @@
       
 
       
-        <p>Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[root@VM_145_23_centos shell]<span class="comment"># ll -lih</span></div><div class="line">total 8.0K</div><div class="line">99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh</div><div class="line"></div><div class="line"><span class="comment"># 99463：inode</span></div><div class="line"><span class="comment"># -rw-r--r--：文件种类和权限</span></div><div class="line"><span class="comment"># 1：硬链接个数</span></div><div class="line"><span class="comment"># root：属主</span></div><div class="line"><span class="comment"># root：所归属的组</span></div><div class="line"><span class="comment"># 39：文件或目录的大小</span></div><div class="line"><span class="comment"># Aug  7 20:53：最后访问或修改时间</span></div><div class="line"><span class="comment"># shell-01.sh：文件名或目录名</span></div></pre></td></tr></table></figure>
-<h3 id="inode"><a href="#inode" class="headerlink" title="inode"></a>inode</h3><pre><code>inode，索引节点。每个存储设备或存储设备的分区（存储设备拉硬盘、U盘等）被格式化为文
-件系统后，应该有两部分：
-    1. inode：用来存储数据的信息，如文件的大小、属主、读写权限等
-    2. block：用来存储数据
-</code></pre><h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><ul>
-<li>用 ln 可以创建链接文件，语法：ln 源文件 目标文件</li>
-<li>在 Linux 文件系统中，inode 值相同的文件是硬链接文件<ul>
-<li>硬链接不能为目录创建</li>
-<li>当一个其中一个硬链接文件的内容，互为硬链接文件的内容也会变化，若是删除时，其他不影响</li>
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一个编程开发的新手，我很喜欢去尝试和学习一些新的技术和知识，来提升自己的个人能力，<br>个人也偏好学习一些底层相关的知识，虽然这几年来的学习让我有了很大的提升，但是自己感觉学<br>习的东西很多，也很杂。有些东西学习后，因为公司的开发条件限制只能是了解过，并没有真正的<br>去实践它，于是便有了自己编写个人开发框架的想法，编写框架可以很好的去实践自己的一些想法<br>，也能去思考一些架构的问题，更可以糅合自己掌握的相关技能。</p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>menory-framework 的运行环境是基于 PHP7、Nginx 和 Swoole 扩展的，只要是使用 Swoole 做应<br>用服务，Nginx 做代理转发。menory-framework 简单可以划分为框架、服务和应用三个部分，服务<br>是基于 Swoole 扩展而给应用相关的网络服务，而应用可以有多种，例如以 MVC 模式为主的 Web<br>应用，最后的框架则是服务和应用的糅合剂，给他们提供一个可运行环境。</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h4 id="框架目录"><a href="#框架目录" class="headerlink" title="框架目录"></a>框架目录</h4><blockquote>
+<p>/app        一些内置的框架管理应用目录<br>/bin        管理脚本目录<br>/etc        应用服务的配置文件目录<br>/factory    ###<br>/var        存放应用服务运行时要改变的数据 pid, log<br>/vendor     框架使用 composer 来管理依赖关系，效果同 composer 的设定</p>
+</blockquote>
+<p><strong>注意：</strong> </p>
+<ul>
+<li>框架的核心代码也以第三方扩展的方式存放在 /vendor/menory</li>
+<li>/var/pid/{appName} 存放应用服务运行时的进程 pid，如 master 和 manager 进程的pid</li>
 </ul>
-</li>
-<li>-s 选项可以创建软链接，链接文件不能独立存在</li>
+<h4 id="应用目录（MVC-模式）"><a href="#应用目录（MVC-模式）" class="headerlink" title="应用目录（MVC 模式）"></a>应用目录（MVC 模式）</h4><blockquote>
+<p>/Controller    控制器文件目录<br>/Configs       应用级配置文件目录<br>/Hooks         钩子文件目录<br>/View          视图文件目录<br>/Libs          应用库目录</p>
+</blockquote>
+<h3 id="框架使用"><a href="#框架使用" class="headerlink" title="框架使用"></a>框架使用</h3><p>框架的使用很简单，主要可以分为下面几个步骤：</p>
+<ul>
+<li>使用 composer 安装框架：composer create-project menory/menory-framework frame “1.0.0”</li>
+<li>运行配置文件创建脚本生成相关配置：php bin/createConf.php [应用名称]</li>
+<li>进行相关的 Nginx 配置</li>
+<li>运行应用启动脚本：php bin/app.php start [应用名称] –debug（调试模式） –daemon（后台运行）</li>
 </ul>
-
+<h3 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h3><p>以 Http 服务为例，在 swoole_http_server</p>
+<h3 id="管理脚本"><a href="#管理脚本" class="headerlink" title="管理脚本"></a>管理脚本</h3><h4 id="bin-app-php-应用管理脚本"><a href="#bin-app-php-应用管理脚本" class="headerlink" title="bin/app.php 应用管理脚本"></a>bin/app.php 应用管理脚本</h4><h4 id="bin-createConf-php-相关配置文件创建脚本"><a href="#bin-createConf-php-相关配置文件创建脚本" class="headerlink" title="bin/createConf.php 相关配置文件创建脚本"></a>bin/createConf.php 相关配置文件创建脚本</h4><h4 id="bin-inotify-sh-目录监听脚本"><a href="#bin-inotify-sh-目录监听脚本" class="headerlink" title="bin/inotify.sh 目录监听脚本"></a>bin/inotify.sh 目录监听脚本</h4><h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>定时器，周期性的执行某项任务。在实际的开发中，定时任务是非常常用的，它可以把一些复杂的<br>业务逻辑解耦，例如商品的开奖、分佣、审核等等，也可以用来实现倒计时开奖，消息通知失败的<br>重试机制等等。而框架中根据 swoole 的特点，也考虑到怕一些费时定时任务影响其他定时任务的<br>执行，所以采用了 swoole 的进程管理模块和毫秒定时器来实现，让每一个定时任务都是一个独立<br>的进程。</p>
+<p>是否进行下次定时任务</p>
+<p>是否在处理定时任务中</p>
+<h3 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h3>
+          
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
@@ -345,36 +353,23 @@
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/09/02/conf/" rel="next" title="Nginx 配置文件">
-                <i class="fa fa-chevron-left"></i> Nginx 配置文件
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/02/yaml/" rel="prev" title="yaml 语法">
-                yaml 语法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
       
+      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -382,10 +377,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -405,17 +396,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://static.menory.com/public/images/logo.jpg"
@@ -458,17 +440,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#inode"><span class="nav-number">1.</span> <span class="nav-text">inode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接文件"><span class="nav-number">2.</span> <span class="nav-text">链接文件</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -572,10 +543,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
