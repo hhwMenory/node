@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="iptables12345678910111213141516171819202122232425262728293031NetFilter 网络过滤器    PREROUTING      路由前    INPUT           数据包流入口    FORWARD         转发管卡    OUTPUT          数据包出口    POSTROUTING     路由后# 规">
+<meta name="description" content="1234567redis 发布订阅（pub/sub）是一种消息通信模式，可以让发布者将消息同时发布给多个订阅的客户端（订阅者）发布者：发布消息的客户端订阅者：通过订阅频道或者模式来获取消息的客户端频道：构建在服务器内部，负责接收发布者发送的消息，并将消息转发给频道的订阅者模式：构建在服务器内部，负责对频道进行匹配，当被匹配的频道接到消息时，模式也会将消息转发给模式的订阅者
+命令订阅123subsc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="防火墙">
-<meta property="og:url" content="http://menory.com/2017/02/23/linux-firewall/index.html">
+<meta property="og:title" content="发布与订阅">
+<meta property="og:url" content="http://menory.com/2017/03/07/redis-publish-and-subscribe/index.html">
 <meta property="og:site_name" content="menory">
-<meta property="og:description" content="iptables12345678910111213141516171819202122232425262728293031NetFilter 网络过滤器    PREROUTING      路由前    INPUT           数据包流入口    FORWARD         转发管卡    OUTPUT          数据包出口    POSTROUTING     路由后# 规">
-<meta property="og:updated_time" content="2017-02-24T02:37:25.563Z">
+<meta property="og:description" content="1234567redis 发布订阅（pub/sub）是一种消息通信模式，可以让发布者将消息同时发布给多个订阅的客户端（订阅者）发布者：发布消息的客户端订阅者：通过订阅频道或者模式来获取消息的客户端频道：构建在服务器内部，负责接收发布者发送的消息，并将消息转发给频道的订阅者模式：构建在服务器内部，负责对频道进行匹配，当被匹配的频道接到消息时，模式也会将消息转发给模式的订阅者
+命令订阅123subsc">
+<meta property="og:updated_time" content="2017-03-07T14:04:05.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="防火墙">
-<meta name="twitter:description" content="iptables12345678910111213141516171819202122232425262728293031NetFilter 网络过滤器    PREROUTING      路由前    INPUT           数据包流入口    FORWARD         转发管卡    OUTPUT          数据包出口    POSTROUTING     路由后# 规">
+<meta name="twitter:title" content="发布与订阅">
+<meta name="twitter:description" content="1234567redis 发布订阅（pub/sub）是一种消息通信模式，可以让发布者将消息同时发布给多个订阅的客户端（订阅者）发布者：发布消息的客户端订阅者：通过订阅频道或者模式来获取消息的客户端频道：构建在服务器内部，负责接收发布者发送的消息，并将消息转发给频道的订阅者模式：构建在服务器内部，负责对频道进行匹配，当被匹配的频道接到消息时，模式也会将消息转发给模式的订阅者
+命令订阅123subsc">
 
 
 
@@ -114,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://menory.com/2017/02/23/linux-firewall/"/>
+  <link rel="canonical" href="http://menory.com/2017/03/07/redis-publish-and-subscribe/"/>
 
-  <title> 防火墙 | menory </title>
+  <title> 发布与订阅 | menory </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -246,7 +249,7 @@
             
             
               
-                防火墙
+                发布与订阅
               
             
           </h1>
@@ -258,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-23T22:18:40+08:00" content="2017-02-23">
-              2017-02-23
+            <time itemprop="dateCreated" datetime="2017-03-07T09:36:59+08:00" content="2017-03-07">
+              2017-03-07
             </time>
           </span>
 
@@ -272,8 +275,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -305,8 +308,12 @@
       
 
       
-        <h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NetFilter 网络过滤器</div><div class="line"></div><div class="line">    PREROUTING      路由前</div><div class="line">    INPUT           数据包流入口</div><div class="line">    FORWARD         转发管卡</div><div class="line">    OUTPUT          数据包出口</div><div class="line">    POSTROUTING     路由后</div><div class="line"></div><div class="line"><span class="comment"># 规则的定义方式 iptables [-t table] COMMAND chain CRETIRIA -j ACTION</span></div><div class="line">    </div><div class="line">    <span class="comment">## -t table [filter|nat|mangle]</span></div><div class="line">    <span class="comment">## COMMAND：     定义如何对规则进行管理</span></div><div class="line">    <span class="comment">## chain：       指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的</span></div><div class="line">    <span class="comment">## CRETIRIA：    指定匹配标准</span></div><div class="line">    <span class="comment">## -j ACTION：   指定如何进行处理</span></div><div class="line">    </div><div class="line">        <span class="comment">### ACTION</span></div><div class="line">            </div><div class="line">            DROP        悄悄丢弃</div><div class="line">            REJECT      明示拒绝</div><div class="line">            ACCEPT      接受</div><div class="line">            REDIRECT    重定向：主要用于实现端口重定向</div><div class="line">            </div><div class="line">    -P 设置默认策略</div><div class="line">    -F 清空规则链</div><div class="line">    </div><div class="line">    </div><div class="line">filter：定义允许或者不允许的   INPUT,FORWARD,OUTPUT</div><div class="line">nat：定义地址转换的            PREROUTING,OUTPUT,POSTROUTING </div><div class="line">mangle 功能：修改报文原数据    PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING</div></pre></td></tr></table></figure>
-<h3 id="firewall"><a href="#firewall" class="headerlink" title="firewall"></a>firewall</h3>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">redis 发布订阅（pub/sub）是一种消息通信模式，可以让发布者将消息同时发布给多个订阅的客户端（订阅者）</div><div class="line"></div><div class="line">发布者：发布消息的客户端</div><div class="line">订阅者：通过订阅频道或者模式来获取消息的客户端</div><div class="line">频道：构建在服务器内部，负责接收发布者发送的消息，并将消息转发给频道的订阅者</div><div class="line">模式：构建在服务器内部，负责对频道进行匹配，当被匹配的频道接到消息时，模式也会将消息转发给模式的订阅者</div></pre></td></tr></table></figure>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">subscribe ...channel    <span class="comment"># 订阅给定的一个或多个频道的信息</span></div><div class="line">psubscribe ...pattern   <span class="comment"># 订阅一个或多个符合给定模式的频道，每个模式以 * 作为匹配符</span></div></pre></td></tr></table></figure>
+<h4 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">publish channel message <span class="comment"># 将信息 message 发送到指定的频道 channel</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="php-实现"><a href="#php-实现" class="headerlink" title="php 实现"></a>php 实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">    // 订阅</div><div class="line">    <span class="keyword">function</span> <span class="built_in">test</span>(<span class="variable">$redis</span>, <span class="variable">$chan</span>, <span class="variable">$msg</span>) &#123;</div><div class="line">    </div><div class="line">        var_dump(<span class="variable">$redis</span>, <span class="variable">$chan</span>, <span class="variable">$msg</span>);</div><div class="line">    </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="variable">$redis</span>  = new \Redis();</div><div class="line">    <span class="variable">$redis</span>-&gt;pconnect(<span class="string">"192.168.1.220"</span>, <span class="string">"6379"</span>);</div><div class="line">    <span class="variable">$redis</span>-&gt;auth(<span class="string">"app123456"</span>);</div><div class="line">    <span class="variable">$redis</span>-&gt;select(31);</div><div class="line">    <span class="variable">$redis</span>-&gt;subscribe([<span class="string">"msg"</span>], <span class="string">"test"</span>);</div><div class="line"></div><div class="line">    // 发布</div><div class="line">    <span class="variable">$redis</span>  = new \Redis();</div><div class="line">    <span class="variable">$redis</span>-&gt;pconnect(<span class="string">"192.168.1.220"</span>, <span class="string">"6379"</span>);</div><div class="line">    <span class="variable">$redis</span>-&gt;auth(<span class="string">"app123456"</span>);</div><div class="line">    <span class="variable">$redis</span>-&gt;select(31);</div><div class="line">    </div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">        <span class="variable">$redis</span>-&gt;publish(<span class="string">"msg"</span>, <span class="string">"test"</span>);</div><div class="line">        sleep(1);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -413,7 +420,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -444,7 +451,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iptables"><span class="nav-number">1.</span> <span class="nav-text">iptables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#firewall"><span class="nav-number">2.</span> <span class="nav-text">firewall</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令"><span class="nav-number">1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#订阅"><span class="nav-number">1.1.</span> <span class="nav-text">订阅</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布"><span class="nav-number">1.2.</span> <span class="nav-text">发布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php-实现"><span class="nav-number">2.</span> <span class="nav-text">php 实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">3.</span> <span class="nav-text">应用场景</span></a></li></ol></div>
             
           </div>
         </section>
