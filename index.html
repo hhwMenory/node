@@ -248,6 +248,121 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/09/git/" itemprop="url">
+                  git
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-09T10:28:15+08:00" content="2017-03-09">
+              2017-03-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/tool/" itemprop="url" rel="index">
+                    <span itemprop="name">tool</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-- system ===&gt; /etc/gitconfig   <span class="comment"># 系统中所有用户配置</span></div><div class="line">-- global ===&gt; ~/.gitconfig     <span class="comment"># 用户配置</span></div><div class="line">.git/config                     <span class="comment"># 当前项目配置</span></div><div class="line"></div><div class="line"><span class="comment"># 设置用户名</span></div><div class="line">git config --global user.name <span class="string">"menory"</span></div><div class="line"></div><div class="line"><span class="comment"># 设置电子邮件</span></div><div class="line">git config --global user.email <span class="string">"hhw_menory@yeah.net"</span></div><div class="line"></div><div class="line"><span class="comment"># 列出 git 设置</span></div><div class="line">git config --list</div><div class="line"></div><div class="line">git config --global merge.tool vimdiff  <span class="comment"># 差异分析工具</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 创建项目仓库</span></div><div class="line">    </div><div class="line">    1. git init                     <span class="comment"># 从当前目录初始化</span></div><div class="line">    2. git <span class="built_in">clone</span> [url] [dir_name]   <span class="comment"># 从现有仓库克隆</span></div><div class="line">    </div><div class="line"><span class="comment"># 查看当前文件状态</span></div><div class="line"></div><div class="line">    git status</div><div class="line">    </div><div class="line">    Changes to be committed 已暂存</div><div class="line">    Changed but not updated 已修改，未暂存</div><div class="line">    </div><div class="line">    committed   已提交</div><div class="line">    modified    已修改</div><div class="line">    staged      已暂存</div><div class="line">    </div><div class="line"><span class="comment"># git add</span></div><div class="line"></div><div class="line">    </div><div class="line">    1. 跟踪新文件</div><div class="line">    2. 将已跟踪的文件放到暂存区</div><div class="line">    3. 把冲突文件标记为已解决状态</div><div class="line">    </div><div class="line"><span class="comment"># 忽略某些文件 .gitignore</span></div><div class="line"></div><div class="line">    - <span class="comment"># 注释符号</span></div><div class="line">    - 可以使用 glob 模式匹配</div><div class="line">    - 最后跟 / 表示目录</div><div class="line">    - ! 忽略指定模式以外的文件或目录</div><div class="line">    </div><div class="line"></div><div class="line"><span class="comment"># git diff</span></div><div class="line"></div><div class="line">    git diff            <span class="comment"># 查看未暂存的文件更新了那些内容</span></div><div class="line">    git diff --staged   <span class="comment"># 已暂存起来的文件和上次提交时的快照的差异</span></div><div class="line">    </div><div class="line"><span class="comment"># 提交更新</span></div><div class="line"></div><div class="line">    git commit          <span class="comment"># 提交时记录的暂存区域的快照</span></div><div class="line">    git commit <span class="_">-a</span>       <span class="comment"># 会自动将所有已经跟踪的文件暂存起来并提交</span></div><div class="line">    </div><div class="line"><span class="comment"># 移除文件</span></div><div class="line">    </div><div class="line">    git rm              <span class="comment"># 从跟踪文件清单中连带工作目录上文件删除，手动删除工作目录中的文件时，还有未暂存区域</span></div><div class="line">    git rm <span class="_">-f</span>           <span class="comment"># 若删除内容已在暂存区，则需要 -f 强制删除</span></div><div class="line">    git rm --cached     <span class="comment"># </span></div><div class="line"></div><div class="line"><span class="comment"># 移动文件</span></div><div class="line"></div><div class="line">    git mv file_from file_to</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/09/git/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/07/redis-publish-and-subscribe/" itemprop="url">
                   发布与订阅
                 </a>
@@ -1466,146 +1581,6 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/02/c-01/" itemprop="url">
-                  C 学习笔记_网络与套接字
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T16:21:44+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>协议，客户端与服务端的结构化对话<br>套接字不是传统意义上的数据流<br>他是双向的，他既可以用作输入也可以用作输出</p>
-<h4 id="BLAB-服务器连接网络四部曲"><a href="#BLAB-服务器连接网络四部曲" class="headerlink" title="BLAB 服务器连接网络四部曲"></a>BLAB 服务器连接网络四部曲</h4><ul>
-<li>B 绑定端口，</li>
-<li>L 监听</li>
-<li>A 接受连接</li>
-<li>B 开始通信</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#include &lt;sys/socket.h&gt;</span></div><div class="line"><span class="comment">#include &lt;arpa/inet.h&gt;</span></div><div class="line"></div><div class="line">int listener_d = socket(PF_INET, SOCK_STREAM, 0);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> (listener_d == 1)</div><div class="line">    error(<span class="string">"Not open socket!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_<span class="keyword">in</span> name;</div><div class="line"></div><div class="line">name.sin_family      = PF_INET;</div><div class="line">name.sin_port        = (<span class="keyword">in</span>_port_t)htons(3000);</div><div class="line">name.sin_addr.s_addr = htonl(INADDR_ANY);</div><div class="line"></div><div class="line">int c = <span class="built_in">bind</span>(listener_d, (struct sockaddr *)&amp;name, sizeof(name));</div><div class="line"></div><div class="line"><span class="keyword">if</span> (c == -1)</div><div class="line">    error(<span class="string">"Not bind port!"</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> (listen(listener_d, 10) == -1)</div><div class="line">    error(<span class="string">"Not listen!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_storage_client_addr;</div><div class="line"></div><div class="line">unsigned int address_size = sizeof(client_addr);</div><div class="line">int connect_d = accept(listener_d, (struct sockaddr *)&amp;client_addr, &amp;address_size);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (connect_d == -1)</div><div class="line">    error(<span class="string">"Not accept!"</span>);</div><div class="line"></div><div class="line"></div><div class="line">char *msg = <span class="string">"xx\r\nzz\r\n"</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (send(connect_d, msg, strlen(msg), 0) == -1)</div><div class="line">    error(<span class="string">"Not send!"</span>);</div></pre></td></tr></table></figure>
-<p><strong>注意：</strong> 当某个端口被绑定了套接字，在接下来的30秒内，操作系统不允许任何程序再绑定它</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int reuse = 1;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (setsockopt(listener_d, SOL_SOCKET, SO_REUSEADDR, (char *)&amp;reuse, sizeof(int)) == -1)</div><div class="line">    error(<span class="string">"Net set sockopt!"</span>);</div></pre></td></tr></table></figure>
-<p> 从客户端读取数据</p>
-<p> &lt;读了几个字节&gt; = recv(&lt;描述符&gt;, &lt;缓冲区&gt;, &lt;要读取几个字节&gt;, 0);</p>
-<p><strong>注意：</strong></p>
-<ul>
-<li>字符串不以 \0 结尾</li>
-<li>当用户在 telent 输入文本时，字符串以 \r\n 结尾</li>
-<li>recv() 将返回字符个数，如果发生错误就返回-1，如果客户端关闭了连接，就返回0</li>
-<li>recv() 调用不一定能一次接收到所有字符</li>
-</ul>
-<hr>
-<p><strong>客户端：</strong></p>
-<ul>
-<li>连接远程端口</li>
-<li>开始通信</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int s = socket(PF_INET, SOCK_STREAM, 0);</div><div class="line"></div><div class="line"></div><div class="line">struct sockaddr_<span class="keyword">in</span> si;</div><div class="line"></div><div class="line">memset(&amp;si, 0, sizeof(si));</div><div class="line"></div><div class="line">si.sin_family      = PF_INET;</div><div class="line">si.sin_addr.s_addr = inet_addr(<span class="string">"182.254.227.60"</span>);</div><div class="line">si.sin_port        = htons(80);</div><div class="line"></div><div class="line"></div><div class="line">connect(s, (struct sockaddr *) &amp;si, sizeof(si));</div></pre></td></tr></table></figure>
-<p>创建域名套接字</p>
-<p>getaddrinfo() 获取域名的地址，需要 netdb.h 文件，会在堆上创建一种名字资源的新数据结构</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#include &lt;netdb.h&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">struct addrinfo *res;</div><div class="line"></div><div class="line">struct addrinfo hints;</div><div class="line"></div><div class="line"></div><div class="line">memset(&amp;hints, 0, sizeof(hints));</div><div class="line"></div><div class="line"></div><div class="line">hints.ai_family   = PF_UNSPEC;</div><div class="line">hints.ai_socktype = SOCK_STREAM;</div><div class="line"></div><div class="line"></div><div class="line">getaddrinfo(<span class="string">"hexo.menory.com"</span>, <span class="string">"80"</span>, &amp;hints, &amp;res);</div><div class="line"></div><div class="line"></div><div class="line">int s = socket(res-&gt;ai_family, res-&gt;ai_socktype, res-&gt;ai_protocol);</div><div class="line"></div><div class="line"></div><div class="line">connect(s, res-&gt;ai_addr, res-&gt;ai_addrlen);</div><div class="line"></div><div class="line"></div><div class="line">freeaddrinfo(res);</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1651,7 +1626,7 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -1,0 +1,591 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="menory, blog" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://mgr.menory.com/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="基本命令12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667-- system ===&amp;gt; /etc/gitconfig   # 系统中所有用户配置-- global ===&amp;gt; ~/.gitc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://menory.com/2017/03/09/git/index.html">
+<meta property="og:site_name" content="menory">
+<meta property="og:description" content="基本命令12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667-- system ===&amp;gt; /etc/gitconfig   # 系统中所有用户配置-- global ===&amp;gt; ~/.gitc">
+<meta property="og:updated_time" content="2017-03-16T03:56:42.801Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git">
+<meta name="twitter:description" content="基本命令12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667-- system ===&amp;gt; /etc/gitconfig   # 系统中所有用户配置-- global ===&amp;gt; ~/.gitc">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://menory.com/2017/03/09/git/"/>
+
+  <title> git | menory </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">menory</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">生命不息，作死不止！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                git
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-09T10:28:15+08:00" content="2017-03-09">
+              2017-03-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/tool/" itemprop="url" rel="index">
+                    <span itemprop="name">tool</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-- system ===&gt; /etc/gitconfig   <span class="comment"># 系统中所有用户配置</span></div><div class="line">-- global ===&gt; ~/.gitconfig     <span class="comment"># 用户配置</span></div><div class="line">.git/config                     <span class="comment"># 当前项目配置</span></div><div class="line"></div><div class="line"><span class="comment"># 设置用户名</span></div><div class="line">git config --global user.name <span class="string">"menory"</span></div><div class="line"></div><div class="line"><span class="comment"># 设置电子邮件</span></div><div class="line">git config --global user.email <span class="string">"hhw_menory@yeah.net"</span></div><div class="line"></div><div class="line"><span class="comment"># 列出 git 设置</span></div><div class="line">git config --list</div><div class="line"></div><div class="line">git config --global merge.tool vimdiff  <span class="comment"># 差异分析工具</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 创建项目仓库</span></div><div class="line">    </div><div class="line">    1. git init                     <span class="comment"># 从当前目录初始化</span></div><div class="line">    2. git <span class="built_in">clone</span> [url] [dir_name]   <span class="comment"># 从现有仓库克隆</span></div><div class="line">    </div><div class="line"><span class="comment"># 查看当前文件状态</span></div><div class="line"></div><div class="line">    git status</div><div class="line">    </div><div class="line">    Changes to be committed 已暂存</div><div class="line">    Changed but not updated 已修改，未暂存</div><div class="line">    </div><div class="line">    committed   已提交</div><div class="line">    modified    已修改</div><div class="line">    staged      已暂存</div><div class="line">    </div><div class="line"><span class="comment"># git add</span></div><div class="line"></div><div class="line">    </div><div class="line">    1. 跟踪新文件</div><div class="line">    2. 将已跟踪的文件放到暂存区</div><div class="line">    3. 把冲突文件标记为已解决状态</div><div class="line">    </div><div class="line"><span class="comment"># 忽略某些文件 .gitignore</span></div><div class="line"></div><div class="line">    - <span class="comment"># 注释符号</span></div><div class="line">    - 可以使用 glob 模式匹配</div><div class="line">    - 最后跟 / 表示目录</div><div class="line">    - ! 忽略指定模式以外的文件或目录</div><div class="line">    </div><div class="line"></div><div class="line"><span class="comment"># git diff</span></div><div class="line"></div><div class="line">    git diff            <span class="comment"># 查看未暂存的文件更新了那些内容</span></div><div class="line">    git diff --staged   <span class="comment"># 已暂存起来的文件和上次提交时的快照的差异</span></div><div class="line">    </div><div class="line"><span class="comment"># 提交更新</span></div><div class="line"></div><div class="line">    git commit          <span class="comment"># 提交时记录的暂存区域的快照</span></div><div class="line">    git commit <span class="_">-a</span>       <span class="comment"># 会自动将所有已经跟踪的文件暂存起来并提交</span></div><div class="line">    </div><div class="line"><span class="comment"># 移除文件</span></div><div class="line">    </div><div class="line">    git rm              <span class="comment"># 从跟踪文件清单中连带工作目录上文件删除，手动删除工作目录中的文件时，还有未暂存区域</span></div><div class="line">    git rm <span class="_">-f</span>           <span class="comment"># 若删除内容已在暂存区，则需要 -f 强制删除</span></div><div class="line">    git rm --cached     <span class="comment"># </span></div><div class="line"></div><div class="line"><span class="comment"># 移动文件</span></div><div class="line"></div><div class="line">    git mv file_from file_to</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="提交历史"><a href="#提交历史" class="headerlink" title="提交历史"></a>提交历史</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git <span class="built_in">log</span> 查看提交历史</div><div class="line">    </div><div class="line">    -n      <span class="comment"># 显示最近多少条记录</span></div><div class="line">    -p      <span class="comment"># 显示每次提交的差异</span></div><div class="line">    --stat  <span class="comment"># 简要的增改行数统计</span></div></pre></td></tr></table></figure>
+<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git commit --amend      <span class="comment"># 重新提交</span></div><div class="line">git reset HEAD &lt;file&gt;   <span class="comment"># 取消暂存</span></div><div class="line">git checkout -- &lt;file&gt;  <span class="comment"># 取消文件的修改</span></div></pre></td></tr></table></figure>
+<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git remote                              <span class="comment"># 查看当前</span></div><div class="line">git remote -v                           <span class="comment"># 查看对应的克隆地址</span></div><div class="line">git remote add [short_name] [url]       <span class="comment"># 添加远程仓库</span></div><div class="line">git fetch [remote_name]                 <span class="comment"># 从远程仓库抓取数据</span></div><div class="line">git pull                                <span class="comment"># 从远程仓库抓取数据后自动合并到工作目录中的当前分支</span></div><div class="line">git push [remote_name] [branch_name]    <span class="comment"># 推送数据到远程仓库</span></div><div class="line">git remote show [remote_name]           <span class="comment"># 查看远程仓库的详细信息</span></div><div class="line">git remote rename                       <span class="comment"># 重命名远程仓库</span></div><div class="line">git remote rm                           <span class="comment"># 删除远程仓库</span></div></pre></td></tr></table></figure>
+<h3 id="tag-标签"><a href="#tag-标签" class="headerlink" title="tag 标签"></a>tag 标签</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git tag                         <span class="comment"># 列出标签</span></div><div class="line">git tag v1.0.0                  <span class="comment"># 创建轻量标签</span></div><div class="line">git tag v1.0.0 -m <span class="string">"xxx"</span>         <span class="comment"># 创建附注标签</span></div><div class="line">git checkout [tagname]          <span class="comment"># 切换到标签</span></div><div class="line">git show                        <span class="comment"># 查看标签信息</span></div><div class="line">git tag <span class="_">-d</span> [tagname]            <span class="comment"># 删除标签</span></div><div class="line">git tag <span class="_">-a</span> v0.1.1 9fbc3d0       <span class="comment"># 补打标签</span></div><div class="line"></div><div class="line"><span class="comment"># 标签发布</span></div><div class="line">git push origin v0.1.2          <span class="comment"># 将 v0.1.2 标签提交到 git 服务器</span></div><div class="line">git push origin -–tags          <span class="comment"># 将本地所有标签一次性提交到 git 服务器</span></div><div class="line"></div><div class="line">git push origin :refs/tags/[tag_name]</div></pre></td></tr></table></figure>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git branch [branch_name]        <span class="comment"># 新建分支</span></div><div class="line">git checkout [branch_name]      <span class="comment"># 切换分支  ===&gt; git checkout -b [branch_name]</span></div><div class="line"></div><div class="line">// 合并</div><div class="line">git checkout master</div><div class="line">git merge [branch_name]</div><div class="line"></div><div class="line">git branch <span class="_">-d</span> [branch_name]     <span class="comment"># 删除分支</span></div><div class="line"></div><div class="line">// 合并冲突</div></pre></td></tr></table></figure>
+<h3 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># 自动完成      ===&gt; 双击 tab</span></div><div class="line"><span class="comment"># git 命令别名  ===&gt; git config --global alias.co checkout</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/07/redis-publish-and-subscribe/" rel="next" title="发布与订阅">
+                <i class="fa fa-chevron-left"></i> 发布与订阅
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://static.menory.com/public/images/logo.jpg"
+               alt="menory" />
+          <p class="site-author-name" itemprop="name">menory</p>
+          <p class="site-description motion-element" itemprop="description">个人分享, 个人总结</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交历史"><span class="nav-number">2.</span> <span class="nav-text">提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销操作"><span class="nav-number">3.</span> <span class="nav-text">撤销操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库"><span class="nav-number">4.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tag-标签"><span class="nav-number">5.</span> <span class="nav-text">tag 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支"><span class="nav-number">6.</span> <span class="nav-text">分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技巧"><span class="nav-number">7.</span> <span class="nav-text">技巧</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">menory</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
