@@ -192,7 +192,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/my-standard-recommendation/">my standard recommendation</a></li></ul>
                     </div>
                 </section>
                 
@@ -268,6 +268,70 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-psr-version" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/10/psr-version/" class="article-date">
+      <time datetime="2017-04-10T05:58:35.000Z" itemprop="datePublished">2017-04-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/psr-version/">个人开发标准 -- 版本号</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="语义化版本"><a href="#语义化版本" class="headerlink" title="语义化版本"></a><a href="http://semver.org/lang/zh-CN/spec/v2.0.0.html" target="_blank" rel="external">语义化版本</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 以 0.1.0 为初始版本号，使用 0.y.z 对初始开发阶段或概念阶段进行版本控制</div><div class="line">- 使用 1.0.0 来界定公共 API 的形成，之后所有的版本号更新都基于公共 API 及其修改内容</div><div class="line">- 标记版本后禁止修改该版本的内容，任何修改都必须以新版本发行</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/msr/">msr</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/my-standard-recommendation/">my standard recommendation</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -875,213 +939,6 @@
       
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-conf" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/02/conf/" class="article-date">
-      <time datetime="2016-09-02T08:21:44.402Z" itemprop="datePublished">2016-09-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/02/conf/">Nginx 配置文件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h4 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h4><blockquote>
-<p>$args： 请求的参数</p>
-<p>$content_length： Http 请求信息中的 “Content-Length”</p>
-<p>$content_type： Http 请求信息中的 “Content-Type”</p>
-<p>$document_root：</p>
-<p>$document_uri：</p>
-</blockquote>
-<hr>
-<h5 id="mian-全局配置"><a href="#mian-全局配置" class="headerlink" title="mian 全局配置"></a>mian 全局配置</h5><pre><code># 运行用户
-
-user user userGroup;
-
-# worker角色的工作进程的个数
-woker_processes 1; [auto] #`grep ^processor /proc/cpuinfo | wc -l`
-
-# worker进程的最大打开文件数限制
-worker_rlimit_nofile 10000;
-</code></pre><h4 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h4><pre><code># 设置可由一个worker进程同时打开的最大连接数，由系统的可用socket连接数限制（~ 64K）
-worker_connections 2048;
-
-# ???
-multi_accept on;
-
-# 设置用于复用客户端线程的轮询方法
-use #Linux 2.6+ =&gt; epoll, *BSD =&gt; kqueue
-</code></pre><h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><pre><code># 关闭在错误页面中的nginx版本数字
-server_tokens off;
-
-#
-sendfile on;
-
-# 告诉nginx在一个数据包里发送所有头文件
-tcp_nopush on;
-
-
-# nginx不缓存数据，而是一段一段的发送
-tcp_nodelay on;
-
-# 设置nginx是否将存储访问日志，关闭这个选项可以让读取磁盘IO操作更快
-access_log off;
-
-# 告诉nginx只能记录严重的错误
-error_log var/log/nginx/error.log crit;
-
-# 给客户端分配keep-alive链接超时时间
-keepalive_timeout 10;
-
-# 设置请求头和请求体(各自)的超时时间
-client_header_timeout, client_body_timeout
-
-# 告诉nginx关闭不响应的客户端连接，会释放那个客户端所占有的内存空间
-reset_timeout_connection on;
-
-# 指定客户端的响应超时时间, 这个设置不会用于整个转发器
-# 而是在两次客户端读取操作之间。如果在这段时间内，客户端没有读取任何数据
-# nginx就会关闭连接
-send_timeout 10;
-
-# 在当前文件中包含另一个文件内容的指令
-include /etc/nginx/mime.types;
-
-# 设置文件使用的默认的MIME-type
-default_type text/html;
-
-# 设置我们的头文件中的默认的字符集
-charset UTF-8;
-
-# nginx采用gzip压缩的形式发送数据
-gzip on;
-
-# 为指定的客户端禁用gzip功能
-gzip_disable
-
-#
-gzip_static
-
-# 允许或者禁止压缩基于请求和响应的响应流，any 压缩所有的请求
-gzip_proxied any;
-
-# 设置对数据启用压缩的最少字节数，压缩小的数据会降低处理此请求的所有进程的速度
-gzip_min_length 1000;
-
-# 设置数据的压缩等级
-gzip_comp_level 4;
-
-# 设置需要压缩的数据格式
-gzip_type text/plain text/css application/json application/x-javascript
-text/xml application/xml application/xml+rss text/javascript;
-</code></pre><h4 id="http-proxy"><a href="#http-proxy" class="headerlink" title="http_proxy"></a>http_proxy</h4><pre><code># ginx跟后端服务器连接超时时间(代理连接超时)
-proxy_connect_timeout 60;
-
-# 连接成功后，与后端服务器两个成功的响应操作之间超时时间(代理接收超时)
-proxy_read_timeout 60;
-
-# 设置代理服务器（nginx）从后端realserver读取并保存用户头信息的缓冲区大小
-proxy_buffer_size 4k;
-
-# proxy_buffers缓冲区，nginx针对单个连接缓存来自后端realserver的响应
-proxy_buffers 4 32k;    
-
-# 高负荷下缓冲大小
-proxy_busy_buffers_size 64k;
-
-# 当proxy_buffers放不下后端服务器的响应内容时，会将一部分保存到硬盘的临时文件中
-# 这个值用来设置最大临时文件大小，默认1024M，它与proxy_cache没有关系
-# 大于这个值，将从upstream服务器传回。设置为0禁用。
-proxy_max_temp_file_size
-
-# 当缓存被代理的服务器响应到临时文件时，这个选项限制每次写临时文件的大小
-# proxy_temp_path（可以在编译的时候）指定写到哪那个目录
-proxy_temp_file_write_size 64k;
-</code></pre><h4 id="server"><a href="#server" class="headerlink" title="server"></a>server</h4><pre><code># 监听端口
-listen
-
-# 服务器名
-server_name
-</code></pre><hr>
-<p><strong>http_stream</strong> ???</p>
-<hr>
-<h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><pre><code># 服务器的默认网站根目录位置
-root /var/www/html;
-
-# 定义路径下默认访问的文件名
-index index.jsp index.html index.htm;
-
-# 请求转向backend定义的服务器列表，即反向代理，对应upstream负载均衡器
-proxy_pass http:/backend;
-
-# 
-proxy_redirect off;
-proxy_set_header Host $host;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-</code></pre><hr>
-<h4 id="访问控制-allow-deny"><a href="#访问控制-allow-deny" class="headerlink" title="访问控制 allow/deny"></a>访问控制 allow/deny</h4><pre><code>location /nginx-status {
-    stub_status on;
-    access_log off;
-    #  auth_basic   &quot;NginxStatus&quot;;
-    #  auth_basic_user_file   /usr/local/nginx-1.6/htpasswd;
-
-    allow 192.168.10.100;
-    allow 172.29.73.0/24;
-    deny all;
-}
-</code></pre><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><pre><code># 列出目录 autoindex
-autoindex on;
-autoindex_exact_size off; # 显示出文件的确切大小，单位是bytes
-autoindex_localtime on; # 显示的文件时间为文件的服务器时间
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Nginx/">Nginx</a>
     </div>
 
 
