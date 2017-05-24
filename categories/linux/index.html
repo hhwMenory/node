@@ -15,19 +15,15 @@
 
 
 
-<meta name="description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux 学习笔记02 -- Linux 文件属性详细说明">
-<meta property="og:url" content="http://menory.com/2016/09/02/linux-02/index.html">
+<meta name="description" content="个人分享, 个人总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="menory">
+<meta property="og:url" content="http://menory.com/categories/linux/index.html">
 <meta property="og:site_name" content="menory">
-<meta property="og:description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
-<meta property="og:updated_time" content="2016-08-10T18:54:40.820Z">
+<meta property="og:description" content="个人分享, 个人总结">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 学习笔记02 -- Linux 文件属性详细说明">
-<meta name="twitter:description" content="Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。
-12345678910111213[root@VM_145_23_centos shell]# ll -lihtotal 8.0K99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh# 99463：inod">
+<meta name="twitter:title" content="menory">
+<meta name="twitter:description" content="个人分享, 个人总结">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Linux 学习笔记02 -- Linux 文件属性详细说明 | menory</title>
+<title>Category: linux | menory</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -69,10 +65,10 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
+        isPost: false,
         isArchive: false,
         isTag: false,
-        isCategory: false,
+        isCategory: true,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
         search: true
@@ -266,190 +262,56 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-linux-02" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2016/09/02/linux-02/" class="article-date">
-      <time datetime="2016-09-02T08:21:44.405Z" itemprop="datePublished">2016-09-02</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2017/05/23/linux-firewall/" class="archive-article-date">
+      <time datetime="2017-05-23T15:01:37.000Z" itemprop="datePublished">05-23</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Linux 学习笔记02 -- Linux 文件属性详细说明
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/05/23/linux-firewall/">linux 防火墙</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <p>Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[root@VM_145_23_centos shell]<span class="comment"># ll -lih</span></div><div class="line">total 8.0K</div><div class="line">99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh</div><div class="line"></div><div class="line"><span class="comment"># 99463：inode</span></div><div class="line"><span class="comment"># -rw-r--r--：文件种类和权限</span></div><div class="line"><span class="comment"># 1：硬链接个数</span></div><div class="line"><span class="comment"># root：属主</span></div><div class="line"><span class="comment"># root：所归属的组</span></div><div class="line"><span class="comment"># 39：文件或目录的大小</span></div><div class="line"><span class="comment"># Aug  7 20:53：最后访问或修改时间</span></div><div class="line"><span class="comment"># shell-01.sh：文件名或目录名</span></div></pre></td></tr></table></figure>
-<h3 id="inode"><a href="#inode" class="headerlink" title="inode"></a>inode</h3><pre><code>inode，索引节点。每个存储设备或存储设备的分区（存储设备拉硬盘、U盘等）被格式化为文
-件系统后，应该有两部分：
-    1. inode：用来存储数据的信息，如文件的大小、属主、读写权限等
-    2. block：用来存储数据
-</code></pre><h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><ul>
-<li>用 ln 可以创建链接文件，语法：ln 源文件 目标文件</li>
-<li>在 Linux 文件系统中，inode 值相同的文件是硬链接文件<ul>
-<li>硬链接不能为目录创建</li>
-<li>当一个其中一个硬链接文件的内容，互为硬链接文件的内容也会变化，若是删除时，其他不影响</li>
-</ul>
-</li>
-<li>-s 选项可以创建软链接，链接文件不能独立存在</li>
-</ul>
-
-      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
     </div>
-    
-  </div>
-  
-    
 
 
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/02/yaml/">
-                    yaml 语法
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/02/conf/">
-                    Nginx 配置文件
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#inode"><span class="toc-number">1.</span> <span class="toc-text">inode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接文件"><span class="toc-number">2.</span> <span class="toc-text">链接文件</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+          
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Linux 学习笔记02 -- Linux 文件属性详细说明　| menory　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
     
-</div>
 
-
-
-
-
-
-
-    
-      <div class="duoshuo" id="comments">
-    <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/02/linux-02/" data-title="Linux 学习笔记02 -- Linux 文件属性详细说明" data-url="http://menory.com/2016/09/02/linux-02/"></div>
-    <script>
-        var duoshuoQuery = {short_name:"null"};
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            s.async = true; s.charset = 'UTF-8';
-            (d.head || d.body).appendChild(s);
-        }
-
-        
-    </script>
-    
-    <script> loadComment(); </script>
-
-</div>
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2016/09/02/yaml/" title="上一篇: yaml 语法">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2016/09/02/conf/" title="下一篇: Nginx 配置文件">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/23/linux-firewall/">linux 防火墙</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/psr-version/">个人开发标准 -- 版本号</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/redis-publish-and-subscribe/">发布与订阅</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/17/binary/">二进制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/19/process/">进程与信号</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/11/go-01/">go 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/05/note-01/">读书笔记_Linux程序设计_泛读</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/xhprof/">使用 xhprof 来分析 php 性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/yaml/">yaml 语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/linux-02/">Linux 学习笔记02 -- Linux 文件属性详细说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/conf/">Nginx 配置文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/c-01/">C 学习笔记_网络与套接字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/frame/">个人开发框架</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">

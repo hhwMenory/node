@@ -269,6 +269,89 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-linux-02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/02/linux-02/" class="article-date">
+      <time datetime="2016-09-02T08:21:44.405Z" itemprop="datePublished">2016-09-02</time>
+</a>
+
+ 
+    <a href="/2016/09/02/linux-02/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/09/02/linux-02/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/02/linux-02/">Linux 学习笔记02 -- Linux 文件属性详细说明</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Linux 文件或目录的属性主要包括：文件或目录的节点、种类、权限模式、链接数量、所归属的用户和用户组、最近访问或修改的时间等内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[root@VM_145_23_centos shell]<span class="comment"># ll -lih</span></div><div class="line">total 8.0K</div><div class="line">99463 -rw-r--r-- 1 root root 39 Aug  7 20:53 shell-01.sh</div><div class="line"></div><div class="line"><span class="comment"># 99463：inode</span></div><div class="line"><span class="comment"># -rw-r--r--：文件种类和权限</span></div><div class="line"><span class="comment"># 1：硬链接个数</span></div><div class="line"><span class="comment"># root：属主</span></div><div class="line"><span class="comment"># root：所归属的组</span></div><div class="line"><span class="comment"># 39：文件或目录的大小</span></div><div class="line"><span class="comment"># Aug  7 20:53：最后访问或修改时间</span></div><div class="line"><span class="comment"># shell-01.sh：文件名或目录名</span></div></pre></td></tr></table></figure>
+<h3 id="inode"><a href="#inode" class="headerlink" title="inode"></a>inode</h3><pre><code>inode，索引节点。每个存储设备或存储设备的分区（存储设备拉硬盘、U盘等）被格式化为文
+件系统后，应该有两部分：
+    1. inode：用来存储数据的信息，如文件的大小、属主、读写权限等
+    2. block：用来存储数据
+</code></pre><h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><ul>
+<li>用 ln 可以创建链接文件，语法：ln 源文件 目标文件</li>
+<li>在 Linux 文件系统中，inode 值相同的文件是硬链接文件<ul>
+<li>硬链接不能为目录创建</li>
+<li>当一个其中一个硬链接文件的内容，互为硬链接文件的内容也会变化，若是删除时，其他不影响</li>
+</ul>
+</li>
+<li>-s 选项可以创建软链接，链接文件不能独立存在</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-conf" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -276,6 +359,15 @@
       <time datetime="2016-09-02T08:21:44.402Z" itemprop="datePublished">2016-09-02</time>
 </a>
 
+ 
+    <a href="/2016/09/02/conf/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/09/02/conf/" ></span>
+        
+        
+    </a>
 
     </div>
   
@@ -483,6 +575,15 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
       <time datetime="2016-09-02T08:21:44.398Z" itemprop="datePublished">2016-09-02</time>
 </a>
 
+ 
+    <a href="/2016/09/02/c-01/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/09/02/c-01/" ></span>
+        
+        
+    </a>
 
     </div>
   
@@ -570,6 +671,15 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
       <time datetime="2016-09-02T08:21:44.384Z" itemprop="datePublished">2016-09-02</time>
 </a>
 
+ 
+    <a href="/2016/09/02/frame/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2016/09/02/frame/" ></span>
+        
+        
+    </a>
 
     </div>
   
@@ -688,6 +798,31 @@ autoindex_localtime on; # 显示的文件时间为文件的服务器时间
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
+
+    
+        <script>
+            if ($(".left-col").is(":visible")) {
+                var duoshuoQuery = {short_name:"null"};
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'http://static.duoshuo.com/embed.js';
+                    s.async = true; s.charset = 'UTF-8';
+                    (d.head || d.body).appendChild(s);
+                })();
+
+                $(document).ready(function(){
+                    var $duoshuoCount = $(".ds-thread-count");
+                    $duoshuoCount.bind("DOMNodeInserted", function(e) {
+                        var num = $(this).text().replace(/[^0-9]/ig,"");
+                        $(this).siblings(".count-comment").text(num);
+                        $(this).remove();
+                    })
+                })
+            }
+        </script>
+    
+
+     
 
 
 
